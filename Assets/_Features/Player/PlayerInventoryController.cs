@@ -57,7 +57,7 @@ namespace Kosciach.StoreWars.Player
             _detectedWeapons.RemoveAt(0);
             
             weapon.transform.SetParent(_weaponHolder);
-            weapon.transform.localPosition = Vector3.zero;
+            weapon.transform.localPosition = weapon.InHandOffset;
             weapon.transform.localRotation = Quaternion.identity;
             weapon.Collider.enabled = false;
             

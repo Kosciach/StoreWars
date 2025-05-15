@@ -141,6 +141,7 @@ MonoBehaviour:
   _maxAmmo: 30
   _fireRate: 0.2
   _damage: 0
+  _inHandOffset: {x: 0, y: 0, z: -0.05}
 --- !u!65 &2782357321774671429
 BoxCollider:
   m_ObjectHideFlags: 0

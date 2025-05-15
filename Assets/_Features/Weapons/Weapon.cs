@@ -10,19 +10,22 @@ namespace Kosciach.StoreWars.Weapons
     public abstract class Weapon : MonoBehaviour
     {
         [BoxGroup("References"), SerializeField] private BoxCollider _collider;
-        [BoxGroup("References"), SerializeField] private Transform _barrel;
-        [BoxGroup("References"), SerializeField] private WeaponProjectile _projectilePrefab;
+        [BoxGroup("References"), SerializeField] protected Transform _barrel;
+        [BoxGroup("References"), SerializeField] protected WeaponProjectile _projectilePrefab;
         [BoxGroup("References"), SerializeField] private Sprite _icon;
         
         [BoxGroup("Stats"), SerializeField] private int _maxAmmo;
         [BoxGroup("Stats"), SerializeField] private float _fireRate;
-        [BoxGroup("Stats"), SerializeField] private float _damage;
+        [BoxGroup("Stats"), SerializeField] protected float _damage;
+        
+        [BoxGroup("Other"), SerializeField] private Vector3 _inHandOffset;
 
         private int _currentAmmo;
         private float _currentFireRate;
         
         public BoxCollider Collider => _collider;
         public Sprite Icon => _icon;
+        public Vector3 InHandOffset => _inHandOffset;
         private bool CanShoot => _currentAmmo > 0 && _currentFireRate == 0;
         
         

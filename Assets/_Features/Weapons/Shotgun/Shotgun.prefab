@@ -171,6 +171,9 @@ MonoBehaviour:
   _maxAmmo: 5
   _fireRate: 3
   _damage: 0
+  _inHandOffset: {x: 0, y: 0, z: -0.1}
+  _projectilesPerShot: 10
+  _bulletSpread: {x: 5, y: 5}
 --- !u!65 &6258964366781586462
 BoxCollider:
   m_ObjectHideFlags: 0

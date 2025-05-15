@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Weapon
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - MouseTarget
   - Water
   - UI
-  - 
+  - Projectile
   - 
   - PostProcessing
   - Not in Reflection
