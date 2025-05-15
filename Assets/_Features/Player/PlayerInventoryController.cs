@@ -37,11 +37,11 @@ namespace Kosciach.StoreWars.Player
         
         private void PickupWeaponInput(InputAction.CallbackContext p_ctx)
         {
-            if (_detectedWeapons.Count == 0)
-                return;
-            
-            TryDropWeapon();
-            TryEquipWeapon();
+            if (_detectedWeapons.Count > 0)
+            {
+                TryDropWeapon();
+                TryEquipWeapon(); 
+            }
         }
         
         private void DropWeaponInput(InputAction.CallbackContext p_ctx)
@@ -71,7 +71,7 @@ namespace Kosciach.StoreWars.Player
             if (_currentWeapon == null) return;
             
             _currentWeapon.transform.SetParent(null);
-            _currentWeapon.transform.position = transform.position;
+            _currentWeapon.transform.position = transform.position + new Vector3(0, 0.1f, 0);
             _currentWeapon.transform.rotation = transform.rotation * Quaternion.Euler(0, 180, 0);
             _currentWeapon.Collider.enabled = true;
             

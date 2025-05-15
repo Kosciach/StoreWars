@@ -12,6 +12,8 @@ namespace Kosciach.StoreWars.Player
     public class PlayerCombatController : MonoBehaviour
     {
         private InputManager _inputManager;
+
+        [SerializeField] private PlayerInventoryController _inventoryController;
         
         private bool _triggerHeld = false;
 
@@ -31,11 +33,16 @@ namespace Kosciach.StoreWars.Player
 
         private void Update()
         {
-
+            if(_inventoryController.CurrentWeapon == null) return;
+            
+            _inventoryController.CurrentWeapon.UpdateWhenHeld(transform.rotation);
+            if (_triggerHeld)
+                _inventoryController.CurrentWeapon.HoldTrigger();
         }
 
         private void WeaponUseStart(InputAction.CallbackContext p_ctx)
         {
+            _inventoryController.CurrentWeapon?.PressTrigger();
             _triggerHeld = true;
         }
         

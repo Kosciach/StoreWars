@@ -1,16 +1,67 @@
+using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Kosciach.StoreWars.Weapons
 {
+    using Projectiles;
+    
     [RequireComponent(typeof(BoxCollider))]
     public abstract class Weapon : MonoBehaviour
     {
-        private BoxCollider _collider;
+        [BoxGroup("References"), SerializeField] private BoxCollider _collider;
+        [BoxGroup("References"), SerializeField] private Transform _barrel;
+        [BoxGroup("References"), SerializeField] private WeaponProjectile _projectilePrefab;
+        [BoxGroup("References"), SerializeField] private Sprite _icon;
+        
+        [BoxGroup("Stats"), SerializeField] private int _maxAmmo;
+        [BoxGroup("Stats"), SerializeField] private float _fireRate;
+        [BoxGroup("Stats"), SerializeField] private float _damage;
+
+        private int _currentAmmo;
+        private float _currentFireRate;
+        
         public BoxCollider Collider => _collider;
+        public Sprite Icon => _icon;
+        private bool CanShoot => _currentAmmo > 0 && _currentFireRate == 0;
+        
         
         private void Awake()
         {
-            _collider = GetComponent<BoxCollider>();
+            _currentAmmo = _maxAmmo;
         }
+
+        public void UpdateWhenHeld(Quaternion p_playerRotation)
+        {
+            _currentFireRate = Mathf.Max(0, _currentFireRate - Time.deltaTime);
+            _barrel.rotation = p_playerRotation;
+        }
+
+        public void PressTrigger()
+        {
+            if (!CanShoot) return;
+
+            OnPressTrigger();
+
+            _currentFireRate = _fireRate;
+        }
+
+        public void HoldTrigger()
+        {
+            if (!CanShoot) return;
+
+            OnHoldTrigger();
+            
+            _currentFireRate = _fireRate;
+        }
+
+        protected virtual void Shoot()
+        {
+            WeaponProjectile projectile = Instantiate(_projectilePrefab, _barrel.position, _barrel.rotation);
+            projectile.Setup(_damage);
+        }
+
+        protected virtual void OnPressTrigger() => Shoot();
+        protected virtual void OnHoldTrigger() => Shoot();
     }
 }

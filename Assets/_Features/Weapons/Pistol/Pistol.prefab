@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &62227385982302150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7954744437946860173}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7954744437946860173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62227385982302150}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.011, z: -0.257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2289595032020929574}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2285198554053119987
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +130,7 @@ GameObject:
   - component: {fileID: 5440306850802362328}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,12 +143,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5133322298820237463}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.763, y: 0.588, z: -1.5953538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7766421978828515533}
+  - {fileID: 7954744437946860173}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5544511110770511164
@@ -132,6 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52ccde7bc2cff7498667c6cbc81310a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 5440306850802362328}
+  _barrel: {fileID: 7954744437946860173}
+  _projectilePrefab: {fileID: 5566315788876560792, guid: 382054e32dd1ed44988018ca201321f5, type: 3}
+  _icon: {fileID: 0}
+  _maxAmmo: 7
+  _fireRate: 0.3
+  _damage: 0
 --- !u!65 &5440306850802362328
 BoxCollider:
   m_ObjectHideFlags: 0
