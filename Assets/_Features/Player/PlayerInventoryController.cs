@@ -68,6 +68,9 @@ namespace Kosciach.StoreWars.Player
 
             _currentWeapon = weapon;
             
+            _currentWeapon.Equip(_animatorController.Shoot);
+            _animatorController.SetRecoil(_currentWeapon.Recoil, _currentWeapon.RecoilTime);
+            
             OnEquipWeapon?.Invoke();
         }
 
@@ -82,6 +85,8 @@ namespace Kosciach.StoreWars.Player
             
             _animatorController.SetWeaponEquiped(false);
 
+            _currentWeapon.UnEquip();
+            
             _currentWeapon = null;
             
             OnDropWeapon?.Invoke();

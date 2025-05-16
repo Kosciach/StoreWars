@@ -1,17 +1,25 @@
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace Kosciach.StoreWars.Player
 {
     public class PlayerAnimatorController : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
+        [BoxGroup("References"), SerializeField] private Animator _animator;
+        [Space(5), HorizontalLine(color: EColor.Gray)]
+        [BoxGroup("References"), SerializeField] private Rig _recoilRig;
+        [BoxGroup("References"), SerializeField] private Transform _recoilTarget;
 
-        [SerializeField] private float _movementBlendDampTime = 0.05f;
-        [SerializeField] private float _weaponLayerTweenTime = 0.2f;
+        [BoxGroup("Settings"), SerializeField] private float _movementBlendDampTime = 0.05f;
+        [BoxGroup("Settings"), SerializeField] private float _weaponLayerTweenTime = 0.2f;
 
         private float _movementBlendWeight;
         private Tween _weaponLayerTween;
+
+        private float _recoilTime;
+        private Tween _recoilWeightTween;
 
         private const string WeaponLayerName = "WeaponLayer";
         
@@ -43,9 +51,27 @@ namespace Kosciach.StoreWars.Player
             };
         }
 
+        internal void SetRecoil(float p_recoil, float p_recoilTime)
+        {
+            _recoilTarget.localEulerAngles = new Vector3(-p_recoil, 0, 0);
+            _recoilTime = p_recoilTime;
+        }
+        
         internal void Shoot()
         {
-            _animator.SetTrigger("Shoot");
+            if (_recoilWeightTween != null)
+            {
+                _recoilWeightTween.Kill();
+                _recoilWeightTween = null;
+            }
+
+            _recoilRig.weight = 0;
+
+            _recoilWeightTween = DOTween.To(() => _recoilRig.weight, x => _recoilRig.weight = x, 1, _recoilTime/2f);
+            _recoilWeightTween.OnComplete(() =>
+            {
+                DOTween.To(() => _recoilRig.weight, x => _recoilRig.weight = x, 0, _recoilTime/2f);
+            });
         }
     }
 }

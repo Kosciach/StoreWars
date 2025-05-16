@@ -8,11 +8,12 @@ namespace Kosciach.StoreWars.Weapons
 {
     public class Shotgun : Weapon
     {
+        [Space(5), HorizontalLine(color: EColor.Gray)]
         [BoxGroup("Stats"), SerializeField] private int _projectilesPerShot;
         [BoxGroup("Stats"), SerializeField] private Vector2 _bulletSpread;
         [BoxGroup("Stats"), SerializeField] private Vector2 _projectleVelocityOffset;
 
-        protected override void Shoot()
+        protected override void CreateProjectiles()
         {
             for (int i = 0; i < _projectilesPerShot; i++)
             {
@@ -23,12 +24,6 @@ namespace Kosciach.StoreWars.Weapons
                 WeaponProjectile projectile = Instantiate(_projectilePrefab, _barrel.position, rotation);
                 projectile.Setup(_damage, Random.Range(_projectleVelocityOffset.x, _projectleVelocityOffset.y));
             }
-            
-            Instantiate(_smokeParticle, _barrel.position, _barrel.rotation);
-
-            _currentAmmo--;
-            
-            _currentFireRate = _fireRate;
         }
         
         protected override void OnPressTrigger() => Shoot();
