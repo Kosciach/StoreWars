@@ -15,11 +15,11 @@ namespace Kosciach.StoreWars.Weapons.Projectiles
         [BoxGroup("Stats"), SerializeField] private float _initialVelocity;
         
         
-        internal void Setup(float p_damage)
+        internal void Setup(float p_damage, float p_velocityOffset = 0)
         {
             _damage = p_damage;
             
-            _rigidbody.AddForce(transform.forward * _initialVelocity, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * (_initialVelocity + p_velocityOffset), ForceMode.Impulse);
         }
 
         private void OnCollisionEnter(Collision other)

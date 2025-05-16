@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 62227385982302150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.011, z: -0.257}
+  m_LocalPosition: {x: 0, y: 0.011, z: -0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,7 +167,7 @@ MonoBehaviour:
   _collider: {fileID: 5440306850802362328}
   _barrel: {fileID: 7954744437946860173}
   _projectilePrefab: {fileID: 5566315788876560792, guid: 382054e32dd1ed44988018ca201321f5, type: 3}
-  _smokeParticle: {fileID: 5172316076876788707, guid: 83e8a29d52203944fa56f6830cdc850b, type: 3}
+  _smokeParticle: {fileID: 1341884748347753881, guid: 56419f06def796c4ab41a4a8deb735d8, type: 3}
   _icon: {fileID: 21300000, guid: d64ccfe57970cf941818128fc7ae40c3, type: 3}
   _maxAmmo: 7
   _fireRate: 0.3

@@ -10,6 +10,7 @@ namespace Kosciach.StoreWars.Weapons
     {
         [BoxGroup("Stats"), SerializeField] private int _projectilesPerShot;
         [BoxGroup("Stats"), SerializeField] private Vector2 _bulletSpread;
+        [BoxGroup("Stats"), SerializeField] private Vector2 _projectleVelocityOffset;
 
         protected override void Shoot()
         {
@@ -20,9 +21,11 @@ namespace Kosciach.StoreWars.Weapons
                 Quaternion rotation = _barrel.rotation * Quaternion.Euler(yBulletSpread, xBulletSpread, 0);
                 
                 WeaponProjectile projectile = Instantiate(_projectilePrefab, _barrel.position, rotation);
-                projectile.Setup(_damage);
+                projectile.Setup(_damage, Random.Range(_projectleVelocityOffset.x, _projectleVelocityOffset.y));
             }
             
+            Instantiate(_smokeParticle, _barrel.position, _barrel.rotation);
+
             _currentAmmo--;
         }
     }

@@ -65,6 +65,8 @@ namespace Kosciach.StoreWars.Weapons
             WeaponProjectile projectile = Instantiate(_projectilePrefab, _barrel.position, _barrel.rotation);
             projectile.Setup(_damage);
 
+            Instantiate(_smokeParticle, _barrel.position, _barrel.rotation);
+            
             _currentAmmo--;
         }
 
