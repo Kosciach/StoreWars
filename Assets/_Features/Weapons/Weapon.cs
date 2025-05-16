@@ -16,13 +16,13 @@ namespace Kosciach.StoreWars.Weapons
         [BoxGroup("References"), SerializeField] private Sprite _icon;
         
         [BoxGroup("Stats"), SerializeField] private int _maxAmmo;
-        [BoxGroup("Stats"), SerializeField] private float _fireRate;
+        [BoxGroup("Stats"), SerializeField] protected float _fireRate;
         [BoxGroup("Stats"), SerializeField] protected float _damage;
         
         [BoxGroup("Other"), SerializeField] private Vector3 _inHandOffset;
 
         protected int _currentAmmo;
-        private float _currentFireRate;
+        protected float _currentFireRate;
         
         public BoxCollider Collider => _collider;
         public Sprite Icon => _icon;
@@ -47,17 +47,13 @@ namespace Kosciach.StoreWars.Weapons
             if (!CanShoot) return;
 
             OnPressTrigger();
-
-            _currentFireRate = _fireRate;
         }
 
         public void HoldTrigger()
         {
             if (!CanShoot) return;
-
-            OnHoldTrigger();
             
-            _currentFireRate = _fireRate;
+            OnHoldTrigger();
         }
 
         protected virtual void Shoot()
@@ -68,6 +64,8 @@ namespace Kosciach.StoreWars.Weapons
             Instantiate(_smokeParticle, _barrel.position, _barrel.rotation);
             
             _currentAmmo--;
+            
+            _currentFireRate = _fireRate;
         }
 
         protected virtual void OnPressTrigger() => Shoot();

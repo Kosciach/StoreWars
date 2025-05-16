@@ -27,6 +27,11 @@ namespace Kosciach.StoreWars.Weapons
             Instantiate(_smokeParticle, _barrel.position, _barrel.rotation);
 
             _currentAmmo--;
+            
+            _currentFireRate = _fireRate;
         }
+        
+        protected override void OnPressTrigger() => Shoot();
+        protected override void OnHoldTrigger() { }
     }
 }

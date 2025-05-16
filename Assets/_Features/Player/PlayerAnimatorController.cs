@@ -42,5 +42,10 @@ namespace Kosciach.StoreWars.Player
                 _animator.SetLayerWeight(_animator.GetLayerIndex(WeaponLayerName), currentWeight);
             };
         }
+
+        internal void Shoot()
+        {
+            _animator.SetTrigger("Shoot");
+        }
     }
 }

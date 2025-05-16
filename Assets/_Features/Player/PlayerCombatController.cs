@@ -13,6 +13,7 @@ namespace Kosciach.StoreWars.Player
     {
         private InputManager _inputManager;
 
+        [SerializeField] private PlayerAnimatorController _animatorController;
         [SerializeField] private PlayerInventoryController _inventoryController;
         
         private bool _triggerHeld = false;
