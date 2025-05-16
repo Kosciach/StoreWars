@@ -1,6 +1,7 @@
 using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
 
 namespace Kosciach.StoreWars.Player
@@ -9,19 +10,18 @@ namespace Kosciach.StoreWars.Player
     {
         [BoxGroup("References"), SerializeField] private Animator _animator;
         [Space(5), HorizontalLine(color: EColor.Gray)]
-        [BoxGroup("References"), SerializeField] private Rig _recoilRig;
+        [BoxGroup("References"), SerializeField] private Rig _weaponRig;
+        [BoxGroup("References"), SerializeField] private MultiRotationConstraint _recoilConstraint;
         [BoxGroup("References"), SerializeField] private Transform _recoilTarget;
 
         [BoxGroup("Settings"), SerializeField] private float _movementBlendDampTime = 0.05f;
-        [BoxGroup("Settings"), SerializeField] private float _weaponLayerTweenTime = 0.2f;
+        [BoxGroup("Settings"), SerializeField] private float _weaponRigTweenTime = 0.2f;
 
         private float _movementBlendWeight;
-        private Tween _weaponLayerTween;
-
+        
+        private Tween _weaponRigTween;
+        private Tween _recoilConstraintTween;
         private float _recoilTime;
-        private Tween _recoilWeightTween;
-
-        private const string WeaponLayerName = "WeaponLayer";
         
         private void Update()
         {
@@ -35,42 +35,40 @@ namespace Kosciach.StoreWars.Player
 
         internal void SetWeaponEquiped(bool p_isEquiped)
         {
-            if (_weaponLayerTween != null)
+            if (_weaponRigTween != null)
             {
-                _weaponLayerTween.Kill();
-                _weaponLayerTween.onUpdate = null;
-                _weaponLayerTween = null;
+                _weaponRigTween.Kill();
+                _weaponRigTween = null;
             }
             
-            float currentWeight = _animator.GetLayerWeight(_animator.GetLayerIndex(WeaponLayerName));
             float targetWeight = p_isEquiped ? 1 : 0;
-            _weaponLayerTween = DOTween.To(() => currentWeight, x => currentWeight = x, targetWeight, _weaponLayerTweenTime);
-            _weaponLayerTween.onUpdate += () =>
-            {
-                _animator.SetLayerWeight(_animator.GetLayerIndex(WeaponLayerName), currentWeight);
-            };
+            _weaponRigTween = DOTween.To(() => _weaponRig.weight, x => _weaponRig.weight = x, targetWeight, _weaponRigTweenTime);
         }
 
         internal void SetRecoil(float p_recoil, float p_recoilTime)
         {
-            _recoilTarget.localEulerAngles = new Vector3(-p_recoil, 0, 0);
+            Vector3 recoilTargetEuler = _recoilTarget.localEulerAngles;
+            recoilTargetEuler.x = -(p_recoil/2f);
+            recoilTargetEuler.z = p_recoil;
+            _recoilTarget.localEulerAngles = recoilTargetEuler;
+            
             _recoilTime = p_recoilTime;
         }
         
         internal void Shoot()
         {
-            if (_recoilWeightTween != null)
+            if (_recoilConstraintTween != null)
             {
-                _recoilWeightTween.Kill();
-                _recoilWeightTween = null;
+                _recoilConstraintTween.Kill();
+                _recoilConstraintTween = null;
             }
 
-            _recoilRig.weight = 0;
+            _recoilConstraint.weight = 0;
 
-            _recoilWeightTween = DOTween.To(() => _recoilRig.weight, x => _recoilRig.weight = x, 1, _recoilTime/2f);
-            _recoilWeightTween.OnComplete(() =>
+            _recoilConstraintTween = DOTween.To(() => _recoilConstraint.weight, x => _recoilConstraint.weight = x, 1, _recoilTime/2f);
+            _recoilConstraintTween.OnComplete(() =>
             {
-                DOTween.To(() => _recoilRig.weight, x => _recoilRig.weight = x, 0, _recoilTime/2f);
+                DOTween.To(() => _recoilConstraint.weight, x => _recoilConstraint.weight = x, 0, _recoilTime/2f);
             });
         }
     }
