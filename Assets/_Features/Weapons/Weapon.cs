@@ -12,6 +12,7 @@ namespace Kosciach.StoreWars.Weapons
         [BoxGroup("References"), SerializeField] private BoxCollider _collider;
         [BoxGroup("References"), SerializeField] protected Transform _barrel;
         [BoxGroup("References"), SerializeField] protected WeaponProjectile _projectilePrefab;
+        [BoxGroup("References"), SerializeField] protected ParticleSystem _smokeParticle;
         [BoxGroup("References"), SerializeField] private Sprite _icon;
         
         [BoxGroup("Stats"), SerializeField] private int _maxAmmo;
@@ -20,7 +21,7 @@ namespace Kosciach.StoreWars.Weapons
         
         [BoxGroup("Other"), SerializeField] private Vector3 _inHandOffset;
 
-        private int _currentAmmo;
+        protected int _currentAmmo;
         private float _currentFireRate;
         
         public BoxCollider Collider => _collider;
@@ -63,6 +64,8 @@ namespace Kosciach.StoreWars.Weapons
         {
             WeaponProjectile projectile = Instantiate(_projectilePrefab, _barrel.position, _barrel.rotation);
             projectile.Setup(_damage);
+
+            _currentAmmo--;
         }
 
         protected virtual void OnPressTrigger() => Shoot();
