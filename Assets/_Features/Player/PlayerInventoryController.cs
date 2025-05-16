@@ -98,6 +98,12 @@ namespace Kosciach.StoreWars.Player
             {
                 _detectedWeapons.Add(weapon);
             }
+
+            if (other.CompareTag("AmmoPile") && _currentWeapon != null && _currentWeapon.CurrentAmmo != _currentWeapon.MaxAmmo)
+            {
+                _currentWeapon.Reload();
+                Destroy(other.gameObject);
+            }
         }
         
         private void OnTriggerExit(Collider other)

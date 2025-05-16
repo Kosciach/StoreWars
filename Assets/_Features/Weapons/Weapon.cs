@@ -29,6 +29,7 @@ namespace Kosciach.StoreWars.Weapons
         public BoxCollider Collider => _collider;
         public Sprite Icon => _icon;
         public Vector3 InHandOffset => _inHandOffset;
+        public int MaxAmmo => _maxAmmo;
         public int CurrentAmmo => _currentAmmo;
         public float Recoil => _recoil;
         public float RecoilTime => _recoilTime;
@@ -50,6 +51,11 @@ namespace Kosciach.StoreWars.Weapons
         public void UnEquip()
         {
             PlayPlayerShootAnim = null;
+        }
+
+        public void Reload()
+        {
+            _currentAmmo = _maxAmmo;
         }
 
         public void UpdateWhenHeld(Quaternion p_playerRotation)

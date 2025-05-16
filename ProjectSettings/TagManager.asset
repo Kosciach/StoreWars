@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Projectile
   - IconsCreationCamera
+  - AmmoPile
   layers:
   - Default
   - TransparentFX

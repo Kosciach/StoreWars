@@ -40,7 +40,7 @@ namespace Kosciach.StoreWars.Player
         {
             //Move
             Vector3 targetVelocity = _movementInput * _speed;
-            _currentVelocity = Vector3.SmoothDamp(_currentVelocity, targetVelocity, ref _refVelocity, _movementDamping * 100 * Time.deltaTime);
+            _currentVelocity = Vector3.SmoothDamp(_currentVelocity, targetVelocity, ref _refVelocity, _movementDamping);
             _characterController.Move(_currentVelocity * Time.deltaTime);
 
             //Rotate
