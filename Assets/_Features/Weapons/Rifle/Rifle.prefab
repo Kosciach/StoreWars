@@ -137,7 +137,7 @@ MonoBehaviour:
   _collider: {fileID: 2782357321774671429}
   _barrel: {fileID: 4935938185310722069}
   _projectilePrefab: {fileID: 5566315788876560792, guid: 382054e32dd1ed44988018ca201321f5, type: 3}
-  _icon: {fileID: 0}
+  _icon: {fileID: -806066648, guid: 792e2496b5dade74ca752dc016003ae1, type: 3}
   _maxAmmo: 30
   _fireRate: 0.2
   _damage: 0

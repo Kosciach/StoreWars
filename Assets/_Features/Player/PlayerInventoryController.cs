@@ -22,6 +22,9 @@ namespace Kosciach.StoreWars.Player
         private Weapon _currentWeapon;
         public Weapon CurrentWeapon => _currentWeapon;
 
+        public event Action OnEquipWeapon;
+        public event Action OnDropWeapon;
+
         private void Awake()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
@@ -64,6 +67,8 @@ namespace Kosciach.StoreWars.Player
             _animatorController.SetWeaponEquiped(true);
 
             _currentWeapon = weapon;
+            
+            OnEquipWeapon?.Invoke();
         }
 
         public void TryDropWeapon()
@@ -78,6 +83,8 @@ namespace Kosciach.StoreWars.Player
             _animatorController.SetWeaponEquiped(false);
 
             _currentWeapon = null;
+            
+            OnDropWeapon?.Invoke();
         }
 
         private void OnTriggerEnter(Collider other)

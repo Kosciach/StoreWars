@@ -26,6 +26,7 @@ namespace Kosciach.StoreWars.Weapons
         public BoxCollider Collider => _collider;
         public Sprite Icon => _icon;
         public Vector3 InHandOffset => _inHandOffset;
+        public int CurrentAmmo => _currentAmmo;
         private bool CanShoot => _currentAmmo > 0 && _currentFireRate == 0;
         
         
