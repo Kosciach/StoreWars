@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - IconsCreationCamera
   - AmmoPile
+  - Customer
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Projectile
-  - 
+  - Player
   - PostProcessing
   - Not in Reflection
   - 

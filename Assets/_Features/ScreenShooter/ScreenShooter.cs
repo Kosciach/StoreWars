@@ -16,29 +16,36 @@ namespace Kosciach.StoreWars.ScreenShooter
         {
             if (_camera == null)
             {
-                Debug.LogError("Camera is not assigned.");
+                Debug.LogError("Target camera not assigned.");
                 return;
             }
-            
-            RenderTexture renderTexture = new RenderTexture(_size.x, _size.y, 24);
-            _camera.targetTexture = renderTexture;
-            
-            Texture2D screenshot = new Texture2D(_size.x, _size.y, TextureFormat.RGB24, false);
+
+            // Set transparent background
+            _camera.clearFlags = CameraClearFlags.SolidColor;
+            _camera.backgroundColor = new Color(0, 0, 0, 0);
+
+            RenderTexture rt = new RenderTexture(_size.x, _size.y, 24, RenderTextureFormat.ARGB32);
+            _camera.targetTexture = rt;
+
+            Texture2D screenshot = new Texture2D(_size.x, _size.y, TextureFormat.RGBA32, false);
             _camera.Render();
-            RenderTexture.active = renderTexture;
+            RenderTexture.active = rt;
             screenshot.ReadPixels(new Rect(0, 0, _size.x, _size.y), 0, 0);
             screenshot.Apply();
-            
+
+            // Clean up
             _camera.targetTexture = null;
             RenderTexture.active = null;
-            DestroyImmediate(renderTexture);
-            
+            DestroyImmediate(rt);
+
             string path = Path.Combine(Application.dataPath, _saveFolder);
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            
+
             string fullPath = Path.Combine(path, _fileName + ".png");
             File.WriteAllBytes(fullPath, screenshot.EncodeToPNG());
+
+            Debug.Log($"Transparent screenshot saved to: {fullPath}");
         }
     }
 }
