@@ -9,11 +9,10 @@ namespace Kosciach.StoreWars.Player
 {
     using Inputs;
 
-    public class PlayerInventoryController : MonoBehaviour
+    public class PlayerInventoryController : PlayerControllerBase
     {
         private InputManager _inputManager;
-
-        [SerializeField] private PlayerAnimatorController _animatorController;
+        
         [SerializeField] private Transform _weaponHolder;
         
         private List<Weapon> _detectedWeapons = new();
@@ -25,14 +24,14 @@ namespace Kosciach.StoreWars.Player
         public event Action OnEquipWeapon;
         public event Action OnDropWeapon;
 
-        private void Awake()
+        internal override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
             _inputManager.InputActions.Player.Interaction.performed += PickupWeaponInput;
             _inputManager.InputActions.Player.DropWeapon.performed += DropWeaponInput;
         }
 
-        private void OnDestroy()
+        internal override void OnDispose()
         {
             _inputManager.InputActions.Player.Interaction.performed -= PickupWeaponInput;
             _inputManager.InputActions.Player.DropWeapon.performed -= DropWeaponInput;
@@ -64,12 +63,12 @@ namespace Kosciach.StoreWars.Player
             weapon.transform.localRotation = Quaternion.identity;
             weapon.Collider.enabled = false;
             
-            _animatorController.SetWeaponEquiped(true);
+            _player.Animator.SetWeaponEquiped(true);
 
             _currentWeapon = weapon;
             
-            _currentWeapon.Equip(_animatorController.Shoot);
-            _animatorController.SetRecoil(_currentWeapon.Recoil, _currentWeapon.RecoilTime);
+            _currentWeapon.Equip(_player.Animator.Shoot);
+            _player.Animator.SetRecoil(_currentWeapon.Recoil, _currentWeapon.RecoilTime);
             
             OnEquipWeapon?.Invoke();
         }
@@ -83,7 +82,7 @@ namespace Kosciach.StoreWars.Player
             _currentWeapon.transform.rotation = transform.rotation * Quaternion.Euler(0, 180, 0);
             _currentWeapon.Collider.enabled = true;
             
-            _animatorController.SetWeaponEquiped(false);
+            _player.Animator.SetWeaponEquiped(false);
 
             _currentWeapon.UnEquip();
             

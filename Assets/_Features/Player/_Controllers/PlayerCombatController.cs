@@ -9,16 +9,13 @@ namespace Kosciach.StoreWars.Player
 {
     using Inputs;
 
-    public class PlayerCombatController : MonoBehaviour
+    public class PlayerCombatController : PlayerControllerBase
     {
         private InputManager _inputManager;
-
-        [SerializeField] private PlayerAnimatorController _animatorController;
-        [SerializeField] private PlayerInventoryController _inventoryController;
         
         private bool _triggerHeld = false;
 
-        private void Awake()
+        internal override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
 
@@ -26,24 +23,24 @@ namespace Kosciach.StoreWars.Player
             _inputManager.InputActions.Player.UseWeapon.canceled += WeaponUseEnd;
         }
 
-        private void OnDestroy()
+        internal override void OnDispose()
         {
             _inputManager.InputActions.Player.UseWeapon.performed -= WeaponUseStart;
             _inputManager.InputActions.Player.UseWeapon.canceled -= WeaponUseEnd;
         }
 
-        private void Update()
+        internal override void OnTick()
         {
-            if(_inventoryController.CurrentWeapon == null) return;
+            if(_player.Inventory.CurrentWeapon == null) return;
             
-            _inventoryController.CurrentWeapon.UpdateWhenHeld(transform.rotation);
+            _player.Inventory.CurrentWeapon.UpdateWhenHeld(transform.rotation);
             if (_triggerHeld)
-                _inventoryController.CurrentWeapon.HoldTrigger();
+                _player.Inventory.CurrentWeapon.HoldTrigger();
         }
 
         private void WeaponUseStart(InputAction.CallbackContext p_ctx)
         {
-            _inventoryController.CurrentWeapon?.PressTrigger();
+            _player.Inventory.CurrentWeapon?.PressTrigger();
             _triggerHeld = true;
         }
         

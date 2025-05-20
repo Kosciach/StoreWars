@@ -2464,6 +2464,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1864027626154372232, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
   m_PrefabInstance: {fileID: 3283880873151210785}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1621240266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4222077139975461977, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
+  m_PrefabInstance: {fileID: 3283880873151210785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ea6fda8eabd264995937515461ce97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1674954602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4047,13 +4058,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 2
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.76
   m_BaseOffset: 0
@@ -4074,6 +4085,8 @@ MonoBehaviour:
   m_Graph: {fileID: -2540379819654064824, guid: ec65b80af3a1fe74aae56a257db6304c, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 4483542733402669071
+  - rid: 4483542798828307190
+  - rid: 4483542798828307213
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -4087,6 +4100,22 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 919132148547209826}
+    - rid: 4483542798828307190
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.Customer, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15974439658334081812
+          m_Value1: 9876196738201581649
+        Name: Customer
+        m_Value: {fileID: 919132148547209830}
+    - rid: 4483542798828307213
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Player.Player, PlayerAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13135832867910752693
+          m_Value1: 17953790660791882190
+        Name: Player
+        m_Value: {fileID: 1621240266}
 --- !u!114 &919132148547209830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4236,10 +4265,6 @@ PrefabInstance:
     - target: {fileID: 9119826584293271544, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119826584293271544, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

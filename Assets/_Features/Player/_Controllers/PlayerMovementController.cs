@@ -6,11 +6,10 @@ namespace Kosciach.StoreWars.Player
 {
     using Inputs;
 
-    public class PlayerMovementController : MonoBehaviour
+    public class PlayerMovementController : PlayerControllerBase
     {
         private InputManager _inputManager;
-
-        [BoxGroup("References"), SerializeField] private PlayerAnimatorController _animatorController;
+        
         [BoxGroup("References"), SerializeField] private CharacterController _characterController;
 
         [BoxGroup("Movement"), SerializeField] private float _speed;
@@ -22,7 +21,7 @@ namespace Kosciach.StoreWars.Player
         private Vector3 _currentVelocity;
         private Vector3 _refVelocity;
 
-        private void Awake()
+        internal override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
 
@@ -30,13 +29,13 @@ namespace Kosciach.StoreWars.Player
             _inputManager.InputActions.Player.Movement.canceled += MovementInput;
         }
 
-        private void OnDestroy()
+        internal override void OnDispose()
         {
             _inputManager.InputActions.Player.Movement.performed -= MovementInput;
             _inputManager.InputActions.Player.Movement.canceled -= MovementInput;
         }
 
-        private void Update()
+        internal override void OnTick()
         {
             //Move
             Vector3 targetVelocity = _movementInput * _speed;
@@ -63,7 +62,7 @@ namespace Kosciach.StoreWars.Player
             Vector2 input = p_ctx.ReadValue<Vector2>();
 
             _movementInput = new Vector3(input.x, 0, input.y);
-            _animatorController.MovementBlend(_movementInput.magnitude > 0f);
+            _player.Animator.MovementBlend(_movementInput.magnitude > 0f);
         }
     }
 }

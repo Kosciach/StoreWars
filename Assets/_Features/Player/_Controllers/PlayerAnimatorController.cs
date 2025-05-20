@@ -6,7 +6,7 @@ using UnityEngine.Animations.Rigging;
 
 namespace Kosciach.StoreWars.Player
 {
-    public class PlayerAnimatorController : MonoBehaviour
+    public class PlayerAnimatorController : PlayerControllerBase
     {
         [BoxGroup("References"), SerializeField] private Animator _animator;
         [Space(5), HorizontalLine(color: EColor.Gray)]
@@ -23,7 +23,7 @@ namespace Kosciach.StoreWars.Player
         private Tween _recoilConstraintTween;
         private float _recoilTime;
         
-        private void Update()
+        internal override void OnTick()
         {
             _animator.SetFloat("Movement", _movementBlendWeight, _movementBlendDampTime, Time.deltaTime);
         }
