@@ -12,15 +12,18 @@ namespace Kosciach.StoreWars.Player
     public class PlayerCombatController : PlayerControllerBase
     {
         private InputManager _inputManager;
+
+        private PlayerInventoryController _inventory;
         
         private bool _triggerHeld = false;
 
         internal override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
-
             _inputManager.InputActions.Player.UseWeapon.performed += WeaponUseStart;
             _inputManager.InputActions.Player.UseWeapon.canceled += WeaponUseEnd;
+
+            _inventory = _player.GetController<PlayerInventoryController>();
         }
 
         internal override void OnDispose()
@@ -31,16 +34,16 @@ namespace Kosciach.StoreWars.Player
 
         internal override void OnTick()
         {
-            if(_player.Inventory.CurrentWeapon == null) return;
+            if(_inventory.CurrentWeapon == null) return;
             
-            _player.Inventory.CurrentWeapon.UpdateWhenHeld(transform.rotation);
+            _inventory.CurrentWeapon.UpdateWhenHeld(transform.rotation);
             if (_triggerHeld)
-                _player.Inventory.CurrentWeapon.HoldTrigger();
+                _inventory.CurrentWeapon.HoldTrigger();
         }
 
         private void WeaponUseStart(InputAction.CallbackContext p_ctx)
         {
-            _player.Inventory.CurrentWeapon?.PressTrigger();
+            _inventory.CurrentWeapon?.PressTrigger();
             _triggerHeld = true;
         }
         

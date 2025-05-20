@@ -9,6 +9,7 @@ namespace Kosciach.StoreWars.Player
     public class PlayerMovementController : PlayerControllerBase
     {
         private InputManager _inputManager;
+        private PlayerAnimatorController _animator;
         
         [BoxGroup("References"), SerializeField] private CharacterController _characterController;
 
@@ -24,9 +25,10 @@ namespace Kosciach.StoreWars.Player
         internal override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
-
             _inputManager.InputActions.Player.Movement.performed += MovementInput;
             _inputManager.InputActions.Player.Movement.canceled += MovementInput;
+
+            _animator = _player.GetController<PlayerAnimatorController>();
         }
 
         internal override void OnDispose()
@@ -62,7 +64,7 @@ namespace Kosciach.StoreWars.Player
             Vector2 input = p_ctx.ReadValue<Vector2>();
 
             _movementInput = new Vector3(input.x, 0, input.y);
-            _player.Animator.MovementBlend(_movementInput.magnitude > 0f);
+            _animator.MovementBlend(_movementInput.magnitude > 0f);
         }
     }
 }

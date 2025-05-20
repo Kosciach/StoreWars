@@ -12,15 +12,18 @@ namespace Kosciach.StoreWars.Player
     public class PlayerInventoryController : PlayerControllerBase
     {
         private InputManager _inputManager;
+        private PlayerAnimatorController _animator;
         
         [SerializeField] private Transform _weaponHolder;
         
+        //Weapons
         private List<Weapon> _detectedWeapons = new();
         public IReadOnlyList<Weapon> DetectedWeapons => _detectedWeapons;
 
         private Weapon _currentWeapon;
         public Weapon CurrentWeapon => _currentWeapon;
 
+        //Events
         public event Action OnEquipWeapon;
         public event Action OnDropWeapon;
 
@@ -29,6 +32,8 @@ namespace Kosciach.StoreWars.Player
             _inputManager = FindFirstObjectByType<InputManager>();
             _inputManager.InputActions.Player.Interaction.performed += PickupWeaponInput;
             _inputManager.InputActions.Player.DropWeapon.performed += DropWeaponInput;
+            
+            _animator = _player.GetController<PlayerAnimatorController>();
         }
 
         internal override void OnDispose()
@@ -63,12 +68,12 @@ namespace Kosciach.StoreWars.Player
             weapon.transform.localRotation = Quaternion.identity;
             weapon.Collider.enabled = false;
             
-            _player.Animator.SetWeaponEquiped(true);
+            _animator.SetWeaponEquiped(true);
 
             _currentWeapon = weapon;
             
-            _currentWeapon.Equip(_player.Animator.Shoot);
-            _player.Animator.SetRecoil(_currentWeapon.Recoil, _currentWeapon.RecoilTime);
+            _currentWeapon.Equip(_animator.Shoot);
+            _animator.SetRecoil(_currentWeapon.Recoil, _currentWeapon.RecoilTime);
             
             OnEquipWeapon?.Invoke();
         }
@@ -82,7 +87,7 @@ namespace Kosciach.StoreWars.Player
             _currentWeapon.transform.rotation = transform.rotation * Quaternion.Euler(0, 180, 0);
             _currentWeapon.Collider.enabled = true;
             
-            _player.Animator.SetWeaponEquiped(false);
+            _animator.SetWeaponEquiped(false);
 
             _currentWeapon.UnEquip();
             

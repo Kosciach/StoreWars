@@ -1,42 +1,45 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kosciach.StoreWars.Player
 {
     public class Player : MonoBehaviour
     {
-        public PlayerMovementController Movement { get; private set; }
-        public PlayerAnimatorController Animator { get; private set; }
-        public PlayerInventoryController Inventory { get; private set; }
-        public PlayerCombatController Combat { get; private set; }
+        private Dictionary<Type, PlayerControllerBase> _controllers = new();
 
         private void Awake()
         {
-            Movement = GetComponent<PlayerMovementController>();
-            Animator = GetComponent<PlayerAnimatorController>();
-            Inventory = GetComponent<PlayerInventoryController>();
-            Combat = GetComponent<PlayerCombatController>();
-
-            Movement.Setup(this);
-            Animator.Setup(this);
-            Inventory.Setup(this);
-            Combat.Setup(this);
+            foreach (PlayerControllerBase controller in GetComponents<PlayerControllerBase>())
+            {
+                _controllers.Add(controller.GetType(), controller);
+            }
+            
+            foreach ((Type type, PlayerControllerBase controller) in _controllers)
+            {
+                controller.Setup(this);
+            }
         }
 
         private void OnDestroy()
         {
-            Movement.Dispose();
-            Animator.Dispose();
-            Inventory.Dispose();
-            Combat.Dispose();
+            foreach ((Type type, PlayerControllerBase controller) in _controllers)
+            {
+                controller.Dispose();
+            }
         }
 
         private void Update()
         {
-            Movement.Tick();
-            Animator.Tick();
-            Inventory.Tick();
-            Combat.Tick();
+            foreach ((Type type, PlayerControllerBase controller) in _controllers)
+            {
+                controller.Tick();
+            }
+        }
+
+        public T GetController<T>() where T : PlayerControllerBase
+        {
+            return _controllers[typeof(T)] as T;
         }
     }
 }
