@@ -5,16 +5,14 @@ namespace Kosciach.StoreWars.Customers
 {
     public class Customer : MonoBehaviour
     {
+        [SerializeField] private CustomerAnimatorController _animator;
         [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private Animator _animator;
         [SerializeField] private float _rotSpeed;
-        
+
+        public CustomerAnimatorController Animator => _animator;
         
         private void Update()
         {
-            bool isMoving = _agent.velocity.magnitude > 0.15f;
-            _animator.SetFloat("MovementWeight", isMoving ? 1 : 0, 0.1f, Time.deltaTime);
-            
             Vector3 lookRotation = _agent.steeringTarget - transform.position;
             if(lookRotation != Vector3.zero)
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRotation), _rotSpeed * Time.deltaTime);
