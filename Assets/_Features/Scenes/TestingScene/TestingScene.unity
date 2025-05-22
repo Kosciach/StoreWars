@@ -4037,11 +4037,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652202504408}
+  - component: {fileID: 919132148547209835}
   - component: {fileID: 919132148547209827}
   - component: {fileID: 919132148547209829}
   - component: {fileID: 919132148547209830}
   - component: {fileID: 919132148547209832}
   - component: {fileID: 919132148547209833}
+  - component: {fileID: 919132148547209834}
   - component: {fileID: 919132148547209831}
   m_Layer: 0
   m_Name: Karen
@@ -4130,7 +4132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3456c63c36fa945a8af8a16cd8fe23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 919132148547209832}
   _agent: {fileID: 919132148547209827}
 --- !u!114 &919132148547209831
 MonoBehaviour:
@@ -4179,6 +4180,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 919132148547209827}
   _rotSpeed: 2
+--- !u!114 &919132148547209834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148547209826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba245144b329fca46ab6d6fc30068e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+--- !u!136 &919132148547209835
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148547209826}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.29
+  m_Height: 0.88
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1001 &2332744609923409176
 PrefabInstance:
   m_ObjectHideFlags: 0

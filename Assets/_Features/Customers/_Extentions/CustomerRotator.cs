@@ -13,7 +13,7 @@ namespace Kosciach.StoreWars.Customers
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private float _rotSpeed;
         
-        private void Update()
+        protected override void OnTick()
         {
             Vector3 lookRotation = _agent.steeringTarget - transform.position;
             if(lookRotation != Vector3.zero)

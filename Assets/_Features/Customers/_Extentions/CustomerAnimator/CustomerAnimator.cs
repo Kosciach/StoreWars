@@ -10,12 +10,12 @@ namespace Kosciach.StoreWars.Customers
 
         [SerializeField] private AnimatorOverrideController _override;
 
-        private void Awake()
+        protected override void OnSetup()
         {
             _animator.runtimeAnimatorController = _override;
         }
 
-        private void Update()
+        protected override void OnTick()
         {
             bool isMoving = _agent.velocity.magnitude > 0.15f;
             _animator.SetFloat("MovementWeight", isMoving ? 1 : 0, 0.1f, Time.deltaTime);

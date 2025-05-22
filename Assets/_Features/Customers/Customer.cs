@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 namespace Kosciach.StoreWars.Customers
 {
+    [RequireComponent(typeof(CustomerAnimator), typeof(CustomerStats))]
     public class Customer : MonoBehaviour
     {
         [SerializeField] private NavMeshAgent _agent;

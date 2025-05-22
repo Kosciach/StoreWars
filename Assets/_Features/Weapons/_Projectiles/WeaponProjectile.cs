@@ -1,4 +1,5 @@
 using System;
+using Kosciach.StoreWars.Damageable;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -27,6 +28,11 @@ namespace Kosciach.StoreWars.Weapons.Projectiles
             if (other.transform.CompareTag("Player") || other.transform.CompareTag("Weapon")) return;
             
             Instantiate(_hitParticle, transform.position, Quaternion.LookRotation(other.contacts[0].normal));
+
+            if (other.transform.TryGetComponent<IDamageable>(out IDamageable target))
+            {
+                target.TakeDamage(_damage);
+            }
             
             Destroy(gameObject);
         }

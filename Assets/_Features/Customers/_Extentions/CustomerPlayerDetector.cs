@@ -21,7 +21,7 @@ namespace Kosciach.StoreWars.Customers
         internal float Angle => _angle;
         internal Transform PlayerTransform => _playerTransform;
 
-        private void Awake()
+        protected override void OnSetup()
         {
             StartCoroutine(DetectionCoroutine());
         }
