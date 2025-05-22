@@ -17,7 +17,7 @@ namespace Kosciach.StoreWars.Player
         
         private bool _triggerHeld = false;
 
-        internal override void OnSetup()
+        protected override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
             _inputManager.InputActions.Player.UseWeapon.performed += WeaponUseStart;
@@ -26,13 +26,13 @@ namespace Kosciach.StoreWars.Player
             _inventory = _player.GetController<PlayerInventoryController>();
         }
 
-        internal override void OnDispose()
+        protected override void OnDispose()
         {
             _inputManager.InputActions.Player.UseWeapon.performed -= WeaponUseStart;
             _inputManager.InputActions.Player.UseWeapon.canceled -= WeaponUseEnd;
         }
 
-        internal override void OnTick()
+        protected override void OnTick()
         {
             if(_inventory.CurrentWeapon == null) return;
             

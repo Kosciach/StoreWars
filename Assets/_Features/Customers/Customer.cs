@@ -9,6 +9,7 @@ namespace Kosciach.StoreWars.Customers
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private float _rotSpeed;
 
+        public NavMeshAgent Agent => _agent;
         public CustomerAnimatorController Animator => _animator;
         
         private void Update()

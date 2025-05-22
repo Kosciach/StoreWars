@@ -10,6 +10,7 @@ namespace Kosciach.StoreWars.Player
     {
         private InputManager _inputManager;
         private PlayerAnimatorController _animator;
+        private PlayerEffectsController _effects;
         
         [BoxGroup("References"), SerializeField] private CharacterController _characterController;
 
@@ -22,23 +23,26 @@ namespace Kosciach.StoreWars.Player
         private Vector3 _currentVelocity;
         private Vector3 _refVelocity;
 
-        internal override void OnSetup()
+        protected override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
             _inputManager.InputActions.Player.Movement.performed += MovementInput;
             _inputManager.InputActions.Player.Movement.canceled += MovementInput;
 
             _animator = _player.GetController<PlayerAnimatorController>();
+            _effects = _player.GetController<PlayerEffectsController>();
         }
 
-        internal override void OnDispose()
+        protected override void OnDispose()
         {
             _inputManager.InputActions.Player.Movement.performed -= MovementInput;
             _inputManager.InputActions.Player.Movement.canceled -= MovementInput;
         }
 
-        internal override void OnTick()
+        protected override void OnTick()
         {
+            if (_effects.IsStunned) return;
+            
             //Move
             Vector3 targetVelocity = _movementInput * _speed;
             _currentVelocity = Vector3.SmoothDamp(_currentVelocity, targetVelocity, ref _refVelocity, _movementDamping);

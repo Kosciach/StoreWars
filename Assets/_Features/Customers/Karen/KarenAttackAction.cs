@@ -1,24 +1,29 @@
 using System;
 using Kosciach.StoreWars.Customers;
+using Kosciach.StoreWars.Player;
 using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "KarenAttack", story: "Karen attack Target", category: "Action", id: "f7900f223a4f4f08058c658151aea6ff")]
+[NodeDescription(name: "KarenAttack", story: "Karen attacks Player", category: "Action", id: "f7900f223a4f4f08058c658151aea6ff")]
 public partial class KarenAttackAction : Action
 {
-    [SerializeReference] public BlackboardVariable<AnimationClip> AttackAnim;
     [SerializeReference] public BlackboardVariable<Customer> Karen;
-    [SerializeReference] public BlackboardVariable<bool> IsPlayerDetected;
+    [SerializeReference] public BlackboardVariable<Player> Player;
+    [SerializeReference] public BlackboardVariable<AnimationClip> AttackAnim;
+    [SerializeReference] public BlackboardVariable<float> Duration;
+    [SerializeReference] public BlackboardVariable<float> StunTime;
 
-    private float _timer = 5;
+    private float _timer;
     
     protected override Status OnStart()
     {
+        Karen.Value.Agent.destination = Karen.Value.transform.position;
         Karen.Value.Animator.PlayAnim(AttackAnim.Value);
-        _timer = 5;
+        Player.Value.GetController<PlayerEffectsController>().Stun(StunTime.Value);
+        _timer = Duration.Value;
         
         return Status.Running;
     }

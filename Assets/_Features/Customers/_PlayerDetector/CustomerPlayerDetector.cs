@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Kosciach.StoreWars.Player;
 using NaughtyAttributes;
 using Unity.Behavior;
 using UnityEngine;
@@ -55,6 +56,14 @@ namespace Kosciach.StoreWars.Customers
 
             //Check Raycast
             if (Physics.Linecast(transform.position, playerTransform.position, ~_playerMask))
+            {
+                _playerTransform = null;
+                return;
+            }
+            
+            //Check is Stunned
+            Player.Player player = playerTransform.GetComponent<Player.Player>();
+            if (player.GetController<PlayerEffectsController>().IsStunned)
             {
                 _playerTransform = null;
                 return;

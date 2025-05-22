@@ -6,7 +6,7 @@ namespace Kosciach.StoreWars.Player
 {
     using Inputs;
 
-    public class PlayereEffectsController : PlayerControllerBase
+    public class PlayerStatsController : PlayerControllerBase
     {
 
     }

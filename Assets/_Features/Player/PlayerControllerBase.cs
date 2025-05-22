@@ -19,8 +19,8 @@ namespace Kosciach.StoreWars.Player
         internal void Tick() => OnTick();
         
         
-        internal virtual void OnSetup() { }
-        internal virtual void OnDispose() { }
-        internal virtual void OnTick() { }
+        protected virtual void OnSetup() { }
+        protected virtual void OnDispose() { }
+        protected virtual void OnTick() { }
     }
 }

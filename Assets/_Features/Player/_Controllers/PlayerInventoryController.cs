@@ -27,7 +27,7 @@ namespace Kosciach.StoreWars.Player
         public event Action OnEquipWeapon;
         public event Action OnDropWeapon;
 
-        internal override void OnSetup()
+        protected override void OnSetup()
         {
             _inputManager = FindFirstObjectByType<InputManager>();
             _inputManager.InputActions.Player.Interaction.performed += PickupWeaponInput;
@@ -36,7 +36,7 @@ namespace Kosciach.StoreWars.Player
             _animator = _player.GetController<PlayerAnimatorController>();
         }
 
-        internal override void OnDispose()
+        protected override void OnDispose()
         {
             _inputManager.InputActions.Player.Interaction.performed -= PickupWeaponInput;
             _inputManager.InputActions.Player.DropWeapon.performed -= DropWeaponInput;

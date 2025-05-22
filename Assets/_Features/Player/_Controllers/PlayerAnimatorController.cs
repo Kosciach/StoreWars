@@ -15,24 +15,35 @@ namespace Kosciach.StoreWars.Player
         [BoxGroup("References"), SerializeField] private Transform _recoilTarget;
 
         [BoxGroup("Settings"), SerializeField] private float _movementBlendDampTime = 0.05f;
+        [Space(5), HorizontalLine(color: EColor.Gray)]
         [BoxGroup("Settings"), SerializeField] private float _weaponRigTweenTime = 0.2f;
+        [Space(5), HorizontalLine(color: EColor.Gray)]
+        [BoxGroup("Settings"), SerializeField] private float _stunLayerTweenTime = 0.2f;
 
+        //Movement
         private float _movementBlendWeight;
         
+        //Weapons
         private Tween _weaponRigTween;
         private Tween _recoilConstraintTween;
         private float _recoilTime;
         
-        internal override void OnTick()
+        //Stun
+        private Tween _stunLayerTween;
+        
+        
+        protected override void OnTick()
         {
             _animator.SetFloat("Movement", _movementBlendWeight, _movementBlendDampTime, Time.deltaTime);
         }
 
+        //Movement
         internal void MovementBlend(bool p_isMoving)
         {
             _movementBlendWeight = p_isMoving ? 1 : 0;
         }
 
+        //Weapons
         internal void SetWeaponEquiped(bool p_isEquiped)
         {
             if (_weaponRigTween != null)
@@ -69,6 +80,24 @@ namespace Kosciach.StoreWars.Player
             _recoilConstraintTween.OnComplete(() =>
             {
                 DOTween.To(() => _recoilConstraint.weight, x => _recoilConstraint.weight = x, 0, _recoilTime/2f);
+            });
+        }
+
+        //Stun
+        internal void SetStunLayer(bool p_enabled)
+        {
+            if (_stunLayerTween != null)
+            {
+                _stunLayerTween.Kill();
+                _stunLayerTween = null;
+            }
+
+            float targetWeight = p_enabled ? 1 : 0;
+            float weight = _animator.GetLayerWeight(_animator.GetLayerIndex("StunLayer"));
+            _stunLayerTween = DOTween.To(() => weight, x => weight = x, targetWeight, _stunLayerTweenTime);
+            _stunLayerTween.OnUpdate(() =>
+            {
+                _animator.SetLayerWeight(_animator.GetLayerIndex("StunLayer"), weight);
             });
         }
     }
