@@ -1,13 +1,13 @@
-using System;
 using System.Collections;
-using Kosciach.StoreWars.Player;
 using NaughtyAttributes;
 using Unity.Behavior;
 using UnityEngine;
 
 namespace Kosciach.StoreWars.Customers
 {
-    public class CustomerPlayerDetector : MonoBehaviour
+    using Player;
+    
+    public class CustomerPlayerDetector : CustomerExtention
     {
         [BoxGroup("References"), SerializeField] private BehaviorGraphAgent _behaviourAgent;
 
@@ -62,7 +62,7 @@ namespace Kosciach.StoreWars.Customers
             }
             
             //Check is Stunned
-            Player.Player player = playerTransform.GetComponent<Player.Player>();
+            Player player = playerTransform.GetComponent<Player>();
             if (player.GetController<PlayerEffectsController>().IsStunned)
             {
                 _playerTransform = null;

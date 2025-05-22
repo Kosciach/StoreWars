@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,18 +7,44 @@ namespace Kosciach.StoreWars.Customers
 {
     public class Customer : MonoBehaviour
     {
-        [SerializeField] private CustomerAnimatorController _animator;
         [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private float _rotSpeed;
-
         public NavMeshAgent Agent => _agent;
-        public CustomerAnimatorController Animator => _animator;
         
+        private Dictionary<Type, CustomerExtention> _extentions = new();
+
+        
+        private void Awake()
+        {
+            foreach (CustomerExtention extention in GetComponents<CustomerExtention>())
+            {
+                _extentions.Add(extention.GetType(), extention);
+            }
+            
+            foreach ((Type type, CustomerExtention extention) in _extentions)
+            {
+                extention.Setup(this);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            foreach ((Type type, CustomerExtention extention) in _extentions)
+            {
+                extention.Dispose();
+            }
+        }
+
         private void Update()
         {
-            Vector3 lookRotation = _agent.steeringTarget - transform.position;
-            if(lookRotation != Vector3.zero)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRotation), _rotSpeed * Time.deltaTime);
+            foreach ((Type type, CustomerExtention extention) in _extentions)
+            {
+                extention.Tick();
+            }
+        }
+
+        public T GetExtention<T>() where T : CustomerExtention
+        {
+            return _extentions[typeof(T)] as T;
         }
     }
 }

@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Kosciach.StoreWars.Customers
 {
-    public class CustomerAnimatorController : MonoBehaviour
+    public class CustomerAnimator : CustomerExtention
     {
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private Animator _animator;

@@ -1,42 +1,51 @@
 using System;
-using Kosciach.StoreWars.Customers;
-using Kosciach.StoreWars.Player;
 using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
-[Serializable, GeneratePropertyBag]
-[NodeDescription(name: "KarenAttack", story: "Karen attacks Player", category: "Action", id: "f7900f223a4f4f08058c658151aea6ff")]
-public partial class KarenAttackAction : Action
+namespace Kosciach.StoreWars.Customers
 {
-    [SerializeReference] public BlackboardVariable<Customer> Karen;
-    [SerializeReference] public BlackboardVariable<Player> Player;
-    [SerializeReference] public BlackboardVariable<AnimationClip> AttackAnim;
-    [SerializeReference] public BlackboardVariable<float> Duration;
-    [SerializeReference] public BlackboardVariable<float> StunTime;
-
-    private float _timer;
+    using Player;
     
-    protected override Status OnStart()
+    [Serializable, GeneratePropertyBag]
+    [NodeDescription(name: "KarenAttack", story: "Karen attacks Player", category: "Action", id: "f7900f223a4f4f08058c658151aea6ff")]
+    public partial class KarenAttackAction : Action
     {
-        Karen.Value.Agent.destination = Karen.Value.transform.position;
-        Karen.Value.Animator.PlayAnim(AttackAnim.Value);
-        Player.Value.GetController<PlayerEffectsController>().Stun(StunTime.Value);
-        _timer = Duration.Value;
+        [SerializeReference] public BlackboardVariable<Customer> Karen;
+        [SerializeReference] public BlackboardVariable<Player> Player;
+        [SerializeReference] public BlackboardVariable<AnimationClip> AttackAnim;
+        [SerializeReference] public BlackboardVariable<float> Duration;
+        [SerializeReference] public BlackboardVariable<float> StunTime;
+
+        private CustomerAnimator _animator;
+        private float _timer;
         
-        return Status.Running;
-    }
+        protected override Status OnStart()
+        {
+            //Assign
+            _animator = Karen.Value.GetExtention<CustomerAnimator>();
+            _timer = Duration.Value;
+            
+            //Customer - Karen
+            Karen.Value.Agent.destination = Karen.Value.transform.position;
+            _animator.PlayAnim(AttackAnim.Value);
+            
+            //Player
+            Player.Value.GetController<PlayerEffectsController>().Stun(StunTime.Value);
+            
+            return Status.Running;
+        }
 
-    protected override Status OnUpdate()
-    {
-        _timer = Mathf.Max(0, _timer - Time.deltaTime);
-        return _timer == 0 ? Status.Success : Status.Running;
-    }
+        protected override Status OnUpdate()
+        {
+            _timer = Mathf.Max(0, _timer - Time.deltaTime);
+            return _timer == 0 ? Status.Success : Status.Running;
+        }
 
-    protected override void OnEnd()
-    {
-        Karen.Value.Animator.StopAction();
+        protected override void OnEnd()
+        {
+            _animator .StopAction();
+        }
     }
 }
-
