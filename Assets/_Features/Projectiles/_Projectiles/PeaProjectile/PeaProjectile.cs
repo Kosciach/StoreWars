@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Kosciach.StoreWars.Weapons.Projectiles
+namespace Kosciach.StoreWars.Projectiles
 {
     public class PeaProjectile : WeaponProjectile
     {

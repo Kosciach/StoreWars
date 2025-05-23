@@ -1,11 +1,9 @@
-using System;
-using Kosciach.StoreWars.Damageable;
-using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Kosciach.StoreWars.Customers
 {
+    using Projectiles;
+    
     public class CustomerStats : CustomerExtention, IDamageable
     {
         [SerializeField] private float _maxHealth = 100;

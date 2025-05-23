@@ -1,5 +1,5 @@
 using System;
-using Kosciach.StoreWars.Weapons.Projectiles;
+using Kosciach.StoreWars.Projectiles;
 using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,7 +11,7 @@ namespace Kosciach.StoreWars.Weapons
         [Space(5), HorizontalLine(color: EColor.Gray)]
         [BoxGroup("Stats"), SerializeField] private int _projectilesPerShot;
         [BoxGroup("Stats"), SerializeField] private Vector2 _bulletSpread;
-        [BoxGroup("Stats"), SerializeField] private Vector2 _projectleVelocityOffset;
+        [BoxGroup("Stats"), SerializeField] private Vector2 _projectileVelocityOffset;
 
         protected override void CreateProjectiles()
         {
@@ -22,7 +22,7 @@ namespace Kosciach.StoreWars.Weapons
                 Quaternion rotation = _barrel.rotation * Quaternion.Euler(yBulletSpread, xBulletSpread, 0);
                 
                 WeaponProjectile projectile = Instantiate(_projectilePrefab, _barrel.position, rotation);
-                projectile.Setup(_damage, Random.Range(_projectleVelocityOffset.x, _projectleVelocityOffset.y));
+                projectile.Setup(_damage, Random.Range(_projectileVelocityOffset.x, _projectileVelocityOffset.y));
             }
         }
         

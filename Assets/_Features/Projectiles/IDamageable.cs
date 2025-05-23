@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Kosciach.StoreWars.Damageable
+namespace Kosciach.StoreWars.Projectiles
 {
     public interface IDamageable
     {
