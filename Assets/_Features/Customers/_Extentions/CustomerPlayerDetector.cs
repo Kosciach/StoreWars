@@ -9,6 +9,8 @@ namespace Kosciach.StoreWars.Customers
     
     public class CustomerPlayerDetector : CustomerExtention
     {
+        private CustomerStats _stats;
+        
         [BoxGroup("References"), SerializeField] private BehaviorGraphAgent _behaviourAgent;
 
         [BoxGroup("Settings"), SerializeField] private LayerMask _playerMask;
@@ -23,9 +25,22 @@ namespace Kosciach.StoreWars.Customers
 
         protected override void OnSetup()
         {
+            _stats = _customer.GetExtention<CustomerStats>();
+            _stats.OnDamageTaken += DamageTaken;
+            
             StartCoroutine(DetectionCoroutine());
         }
 
+        protected override void OnDispose()
+        {
+            _stats.OnDamageTaken -= DamageTaken;
+        }
+
+        private void DamageTaken()
+        {
+            _behaviourAgent.SetVariableValue("IsPlayerDetected", true);
+        }
+        
         private IEnumerator DetectionCoroutine()
         {
             while (true)

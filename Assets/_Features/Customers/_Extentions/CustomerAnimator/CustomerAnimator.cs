@@ -1,3 +1,6 @@
+using DG.Tweening;
+using NaughtyAttributes;
+using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,11 +8,11 @@ namespace Kosciach.StoreWars.Customers
 {
     public class CustomerAnimator : CustomerExtention
     {
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private Animator _animator;
-
-        [SerializeField] private AnimatorOverrideController _override;
-
+        [BoxGroup("References"), SerializeField] private NavMeshAgent _agent;
+        [BoxGroup("References"), SerializeField] private Animator _animator;
+        [BoxGroup("References"), SerializeField] private AnimatorOverrideController _override;
+        
+        
         protected override void OnSetup()
         {
             _animator.runtimeAnimatorController = _override;
@@ -21,7 +24,7 @@ namespace Kosciach.StoreWars.Customers
             _animator.SetFloat("MovementWeight", isMoving ? 1 : 0, 0.1f, Time.deltaTime);
         }
 
-        internal void PlayAnim(AnimationClip p_animation, bool p_loop = false)
+        internal void PlayAction(AnimationClip p_animation, bool p_loop = false)
         {
             _override["static"] = p_animation;
             _animator.SetTrigger("ActionEnter");
@@ -33,6 +36,11 @@ namespace Kosciach.StoreWars.Customers
         internal void StopAction()
         {
             _animator.SetTrigger("ActionExit");
+        }
+        
+        internal void PlayHit()
+        {
+            _animator.SetTrigger("Hit");
         }
     }
 }

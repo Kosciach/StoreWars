@@ -4166,6 +4166,7 @@ MonoBehaviour:
   _agent: {fileID: 919132148547209827}
   _animator: {fileID: 1887739271}
   _override: {fileID: 22100000, guid: 78b6f515fb649af43a93008a8d387e1a, type: 2}
+  _hitExitTime: 0
 --- !u!114 &919132148547209833
 MonoBehaviour:
   m_ObjectHideFlags: 0

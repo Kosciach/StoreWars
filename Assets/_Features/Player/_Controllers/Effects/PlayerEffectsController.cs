@@ -9,6 +9,7 @@ namespace Kosciach.StoreWars.Player
     public class PlayerEffectsController : PlayerControllerBase
     {
         private PlayerAnimatorController _animator;
+        private PlayerInventoryController _inventory;
 
         [BoxGroup("Stun"), SerializeField] private PlayerStunViualization _stunViualization;
         
@@ -19,6 +20,7 @@ namespace Kosciach.StoreWars.Player
         protected override void OnSetup()
         {
             _animator = _player.GetController<PlayerAnimatorController>();
+            _inventory = _player.GetController<PlayerInventoryController>();
         }
 
         protected override void OnTick()
@@ -33,6 +35,7 @@ namespace Kosciach.StoreWars.Player
             _isStunned = true;
             _animator.SetStunLayer(true);
             _stunViualization.Show();
+            _inventory.TryDropWeapon();
         }
         
         private void UpdateStun()

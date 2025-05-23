@@ -29,7 +29,7 @@ namespace Kosciach.StoreWars.Customers
             
             //Customer - Karen
             Karen.Value.Agent.destination = Karen.Value.transform.position;
-            _animator.PlayAnim(AttackAnim.Value);
+            _animator.PlayAction(AttackAnim.Value);
             
             //Player
             Player.Value.GetController<PlayerEffectsController>().Stun(StunTime.Value);
