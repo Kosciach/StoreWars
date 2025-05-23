@@ -11,11 +11,14 @@ namespace Kosciach.StoreWars.Customers
     {
         private CustomerAnimator _animator;
         
+        [BoxGroup("References"), SerializeField] private BehaviorGraphAgent _behaviorGraphAgent;
+        
         [BoxGroup("Stats"), SerializeField] private float _maxHealth = 100;
 
         private float _currentHealth;
 
         public event Action OnDamageTaken;
+        
         
         protected override void OnSetup()
         {
@@ -25,6 +28,8 @@ namespace Kosciach.StoreWars.Customers
 
         public void TakeDamage(float p_damage)
         {
+            if (_currentHealth == 0) return;
+            
             _currentHealth = Mathf.Max(0, _currentHealth - p_damage);
             OnDamageTaken?.Invoke();
             
@@ -33,8 +38,9 @@ namespace Kosciach.StoreWars.Customers
                 _animator.PlayHit();
                 return;
             }
-            
-            Destroy(gameObject);
+
+            _behaviorGraphAgent.enabled = false;
+            _animator.PlayDeath();   
         }
 
         public void Push(Vector3 p_direction)

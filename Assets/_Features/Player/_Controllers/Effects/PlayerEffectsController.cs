@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using NaughtyAttributes;
 
 namespace Kosciach.StoreWars.Player
@@ -34,8 +33,8 @@ namespace Kosciach.StoreWars.Player
             _stunTimer = p_time;
             _isStunned = true;
             _animator.SetStunLayer(true);
-            _stunViualization.Show();
             _inventory.TryDropWeapon();
+            _stunViualization.Show();
         }
         
         private void UpdateStun()

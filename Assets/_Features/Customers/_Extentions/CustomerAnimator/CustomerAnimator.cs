@@ -42,5 +42,18 @@ namespace Kosciach.StoreWars.Customers
         {
             _animator.SetTrigger("Hit");
         }
+        
+        internal void PlayDeath()
+        {
+            _animator.SetTrigger("Die");
+        }
+        
+        public void AnimEvent(string p_eventName)
+        {
+            if (p_eventName == "DeathEnd")
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
