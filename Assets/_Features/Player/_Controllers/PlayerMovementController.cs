@@ -47,6 +47,7 @@ namespace Kosciach.StoreWars.Player
             Vector3 targetVelocity = _movementInput * _speed;
             _currentVelocity = Vector3.SmoothDamp(_currentVelocity, targetVelocity, ref _refVelocity, _movementDamping);
             _characterController.Move(_currentVelocity * Time.deltaTime);
+            _animator.MovementBlend(_movementInput.magnitude > 0f);
 
             //Rotate
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -68,7 +69,6 @@ namespace Kosciach.StoreWars.Player
             Vector2 input = p_ctx.ReadValue<Vector2>();
 
             _movementInput = new Vector3(input.x, 0, input.y);
-            _animator.MovementBlend(_movementInput.magnitude > 0f);
         }
     }
 }

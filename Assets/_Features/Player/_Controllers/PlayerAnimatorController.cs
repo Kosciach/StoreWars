@@ -19,28 +19,19 @@ namespace Kosciach.StoreWars.Player
         [BoxGroup("Settings"), SerializeField] private float _weaponRigTweenTime = 0.2f;
         [Space(5), HorizontalLine(color: EColor.Gray)]
         [BoxGroup("Settings"), SerializeField] private float _stunLayerTweenTime = 0.2f;
-
-        //Movement
-        private float _movementBlendWeight;
         
-        //Weapons
         private Tween _weaponRigTween;
         private Tween _recoilConstraintTween;
         private float _recoilTime;
         
-        //Stun
         private Tween _stunLayerTween;
         
         
-        protected override void OnTick()
-        {
-            _animator.SetFloat("Movement", _movementBlendWeight, _movementBlendDampTime, Time.deltaTime);
-        }
-
         //Movement
         internal void MovementBlend(bool p_isMoving)
         {
-            _movementBlendWeight = p_isMoving ? 1 : 0;
+            int weight = p_isMoving ? 1 : 0;
+            _animator.SetFloat("Movement", weight, _movementBlendDampTime, Time.deltaTime);
         }
 
         //Weapons

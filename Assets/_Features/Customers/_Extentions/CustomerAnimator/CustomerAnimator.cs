@@ -24,13 +24,17 @@ namespace Kosciach.StoreWars.Customers
             _animator.SetFloat("MovementWeight", isMoving ? 1 : 0, 0.1f, Time.deltaTime);
         }
 
-        internal void PlayAction(AnimationClip p_animation, bool p_loop = false)
+        internal float PlayAction(AnimationClip p_animation, float p_playbackSpeed = 1)
         {
+            _animator.ResetTrigger("ActionEnter");
+            _animator.ResetTrigger("ActionExit");
+            
+            _animator.SetFloat("ActionSpeed", p_playbackSpeed);
+            
             _override["static"] = p_animation;
             _animator.SetTrigger("ActionEnter");
-            
-            if (p_loop)
-                StopAction();
+
+            return p_animation.length * (1f/p_playbackSpeed);
         }
 
         internal void StopAction()
