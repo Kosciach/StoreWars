@@ -3549,7 +3549,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6342795470271567518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
@@ -3871,10 +3871,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 10
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 60
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -4273,6 +4273,7 @@ GameObject:
   - component: {fileID: 6773521009557715091}
   - component: {fileID: 8144486966946295317}
   - component: {fileID: 4571948273566095865}
+  - component: {fileID: 8144486966946295318}
   m_Layer: 0
   m_Name: Brat
   m_TagString: Customer
@@ -4425,6 +4426,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 3283862166015300995}
   _rotSpeed: 2
+--- !u!114 &8144486966946295318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342795470271567518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3c107f8c9e4f649a73f35101939cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1621240266}
+  _behaviour: {fileID: 873329044322544302}
+  _radius: 5
+  _pointsCount: 15
+  _points:
+  - {x: 0, y: 0, z: 2.5}
+  - {x: 1.0168418, y: 0, z: 2.2838635}
+  - {x: 1.8578622, y: 0, z: 1.6728264}
+  - {x: 2.3776414, y: 0, z: 0.7725425}
+  - {x: 2.4863048, y: 0, z: -0.26132137}
+  - {x: 2.1650634, y: 0, z: -1.2500002}
+  - {x: 1.4694631, y: 0, z: -2.0225427}
+  - {x: 0.519779, y: 0, z: -2.445369}
+  - {x: -0.51978004, y: 0, z: -2.4453685}
+  - {x: -1.4694638, y: 0, z: -2.022542}
+  - {x: -2.1650639, y: 0, z: -1.25}
+  - {x: -2.486305, y: 0, z: -0.26132107}
+  - {x: -2.3776412, y: 0, z: 0.77254295}
+  - {x: -1.8578619, y: 0, z: 1.6728268}
+  - {x: -1.0168412, y: 0, z: 2.2838638}
 --- !u!1 &8153081418398962712
 GameObject:
   m_ObjectHideFlags: 0
