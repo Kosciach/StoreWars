@@ -1,36 +1,30 @@
-using System;
-using Kosciach.StoreWars.Player;
-using Kosciach.StoreWars.Weapons;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using NaughtyAttributes;
 
 namespace Kosciach.StoreWars.UI
 {
+    using Player;
+    using Weapons;
+    
     public class PlayerWeaponPanel : MonoBehaviour
     {
         private PlayerInventoryController _playerInventoryController;
 
-        [SerializeField] private Image _icon;
-        [SerializeField] private Image _iconShadow;
-        [SerializeField] private Image _fireRateFill;
-        [SerializeField] private TextMeshProUGUI _ammoCount;
+        [BoxGroup("References"), SerializeField] private Image _icon;
+        [BoxGroup("References"), SerializeField] private Image _iconShadow;
+        [BoxGroup("References"), SerializeField] private Image _fireRateFill;
+        [BoxGroup("References"), SerializeField] private TextMeshProUGUI _ammoCount;
         
-        internal void Setup()
+        
+        private void Awake()
         {
             _playerInventoryController = FindFirstObjectByType<PlayerInventoryController>();
-            _playerInventoryController.OnEquipWeapon += WeaponEquiped;
-            _playerInventoryController.OnDropWeapon += WeaponDropped;
             
             gameObject.SetActive(false);
         }
         
-        internal void Dispose()
-        {
-            _playerInventoryController.OnEquipWeapon -= WeaponEquiped;
-            _playerInventoryController.OnDropWeapon -= WeaponDropped;
-        }
-
         private void Update()
         {
             if (_playerInventoryController.CurrentWeapon == null) return;
@@ -38,6 +32,18 @@ namespace Kosciach.StoreWars.UI
             Weapon weapon = _playerInventoryController.CurrentWeapon;
             _fireRateFill.fillAmount = 1 - weapon.NormalizedFireRate;
             _ammoCount.text = _playerInventoryController.CurrentWeapon.CurrentAmmo.ToString();
+        }
+        
+        private void OnEnable()
+        {
+            _playerInventoryController.OnEquipWeapon += WeaponEquiped;
+            _playerInventoryController.OnDropWeapon += WeaponDropped;
+        }
+
+        private void OnDisable()
+        {
+            _playerInventoryController.OnEquipWeapon -= WeaponEquiped;
+            _playerInventoryController.OnDropWeapon -= WeaponDropped;
         }
 
         private void WeaponEquiped()

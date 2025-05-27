@@ -1,5 +1,3 @@
-using System;
-using Kosciach.StoreWars.Player;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,11 +20,6 @@ namespace Kosciach.StoreWars.UI
             _playerStats = _player.GetController<PlayerStatsController>();
         }
         
-        internal void Dispose()
-        {
-
-        }
-
         private void Update()
         {
             _healthBar.value = _playerStats.CurrentHealthNormalized;
