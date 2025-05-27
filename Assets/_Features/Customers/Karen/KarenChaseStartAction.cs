@@ -31,7 +31,7 @@ public partial class KarenChaseStartAction : Action
         Karen.Value.transform.DOLookAt(lookAtPos, LookAtTime).OnComplete(() =>
         {
             Karen.Value.Agent.destination = Karen.Value.transform.position;
-            _animator.PlayAction(Anim.Value, AnimSpeed.Value);
+            _animator.PlayAction(Anim.Value, false, AnimSpeed.Value);
         });
         
         return Status.Running;

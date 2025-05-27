@@ -11,7 +11,8 @@ namespace Kosciach.StoreWars.Customers
         [BoxGroup("References"), SerializeField] private NavMeshAgent _agent;
         [BoxGroup("References"), SerializeField] private Animator _animator;
         [BoxGroup("References"), SerializeField] private AnimatorOverrideController _override;
-        
+
+        private Tween _actionTween;
         
         protected override void OnSetup()
         {
@@ -24,17 +25,29 @@ namespace Kosciach.StoreWars.Customers
             _animator.SetFloat("MovementWeight", isMoving ? 1 : 0, 0.1f, Time.deltaTime);
         }
 
-        internal float PlayAction(AnimationClip p_animation, float p_playbackSpeed = 1)
+        internal float PlayAction(AnimationClip p_animation, bool p_autoStop = false, float p_playbackSpeed = 1)
         {
             _animator.ResetTrigger("ActionEnter");
             _animator.ResetTrigger("ActionExit");
+
+            if (_actionTween != null)
+            {
+                _actionTween.Kill();
+                _actionTween = null;
+            }
             
-            _animator.SetFloat("ActionSpeed", p_playbackSpeed);
-            
+            _animator.SetFloat("ActionSpeed", p_playbackSpeed);      
             _override["static"] = p_animation;
             _animator.SetTrigger("ActionEnter");
 
-            return p_animation.length * (1f/p_playbackSpeed);
+            float timer = p_animation.length * (1f/p_playbackSpeed);
+            if (p_autoStop)
+            {
+                _actionTween = DOTween.To(() => timer, x => timer = x, 0, timer);
+                _actionTween.OnComplete(StopAction);
+            }
+            
+            return timer;
         }
 
         internal void StopAction()

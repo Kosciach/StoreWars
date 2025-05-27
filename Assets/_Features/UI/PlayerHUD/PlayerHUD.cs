@@ -12,7 +12,6 @@ namespace Kosciach.StoreWars.UI
         private void Awake()
         {
             _weaponPanel.Setup();
-            _healthBar.Setup();
         }
         
         private void OnDestroy()

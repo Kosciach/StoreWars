@@ -26,16 +26,24 @@ MonoBehaviour:
   m_Name: BratBehaviour
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 4483542935868014824
+  - rid: 4483542953879142583
   RootGraph:
-    rid: 4483542935868014824
+    rid: 4483542953879142583
   m_DebugInfo: {fileID: -8368995467309922567}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 4483542935868014824
+    - rid: 4483542953879142579
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 5
+    - rid: 4483542953879142583
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
@@ -43,92 +51,103 @@ MonoBehaviour:
           m_Value1: 5343223381757492968
         m_DebugInfo: {fileID: 0}
         Root:
-          rid: 4483542935868014825
+          rid: 4483542953879142584
         BlackboardReference:
-          rid: 4483542935868014826
+          rid: 4483542953879142585
         BlackboardGroupReferences: []
         m_ActiveNodes: []
         m_NodesToTick: []
         m_NodesToEnd:
-          rid: 4483542935868014827
+          rid: 4483542953879142586
         m_EndedNodes:
-          rid: 4483542935868014828
-        m_VersionTimestamp: 638838656549675669
-    - rid: 4483542935868014825
+          rid: 4483542953879142587
+        m_VersionTimestamp: 638839335371261755
+    - rid: 4483542953879142584
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 10215719610250623569
           m_Value1: 1424084884705501145
         Graph:
-          rid: 4483542935868014824
+          rid: 4483542953879142583
         m_Parent:
           rid: -2
         m_Child:
-          rid: 4483542935868014829
+          rid: 4483542953879142588
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 4483542935868014826
+    - rid: 4483542953879142585
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 4483542935868014830
+          rid: 4483542953879142589
         m_Source: {fileID: 2027250979490874811}
-    - rid: 4483542935868014827
+    - rid: 4483542953879142586
       type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: mscorlib}
       data: 
-    - rid: 4483542935868014828
+    - rid: 4483542953879142587
       type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic, asm: System.Core}
       data: 
-    - rid: 4483542935868014829
+    - rid: 4483542953879142588
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 16628824176399878010
+          m_Value1: 13728426117665055657
+        Graph:
+          rid: 4483542953879142583
+        m_Parent:
+          rid: 4483542953879142584
+        m_Children:
+        - rid: 4483542953879142590
+        - rid: 4483542953879142591
+    - rid: 4483542953879142589
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables:
+        - rid: 4483542953879142592
+        - rid: 4483542953879142593
+        - rid: 4483542953879142594
+        - rid: 4483542953879142595
+        - rid: 4483542953879142596
+        - rid: 4483542953879142597
+    - rid: 4483542953879142590
       type: {class: BratOrbitPlayerAction, ns: , asm: CustomersAssembly}
       data:
         ID:
           m_Value0: 16628824176399878010
           m_Value1: 13728426117665055657
         Graph:
-          rid: 4483542935868014824
+          rid: 4483542953879142583
         m_Parent:
-          rid: 4483542935868014825
+          rid: 4483542953879142588
         Brat:
-          rid: 4483542935868014831
+          rid: 4483542953879142593
         Player:
-          rid: 4483542935868014832
+          rid: 4483542953879142594
         OrbitPoint:
-          rid: 4483542935868014833
-    - rid: 4483542935868014830
-      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+          rid: 4483542953879142595
+    - rid: 4483542953879142591
+      type: {class: BratTryAttackAction, ns: , asm: CustomersAssembly}
       data:
-        m_Variables:
-        - rid: 4483542935868014834
-        - rid: 4483542935868014831
-        - rid: 4483542935868014832
-        - rid: 4483542935868014833
-    - rid: 4483542935868014831
-      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.Customer, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15974439658334081812
-          m_Value1: 9876196738201581649
-        Name: Customer
-        m_Value: {fileID: 0}
-    - rid: 4483542935868014832
-      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Player.Player, PlayerAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 13135832867910752693
-          m_Value1: 17953790660791882190
-        Name: Player
-        m_Value: {fileID: 0}
-    - rid: 4483542935868014833
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 8626595258977069995
-          m_Value1: 5891177603244496675
-        Name: OrbitPoint
-        m_Value: {x: 0, y: 0, z: 0}
-    - rid: 4483542935868014834
+        ID:
+          m_Value0: 10105560804932546725
+          m_Value1: 9656074936922338656
+        Graph:
+          rid: 4483542953879142583
+        m_Parent:
+          rid: 4483542953879142588
+        Brat:
+          rid: 4483542953879142593
+        Player:
+          rid: 4483542953879142594
+        Anim:
+          rid: 4483542953879142596
+        ProjectilePrefab:
+          rid: 4483542953879142597
+        TimeBetweenAttacks:
+          rid: 4483542953879142579
+    - rid: 4483542953879142592
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -136,6 +155,46 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
+    - rid: 4483542953879142593
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.Customer, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15974439658334081812
+          m_Value1: 9876196738201581649
+        Name: Customer
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142594
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Player.Player, PlayerAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13135832867910752693
+          m_Value1: 17953790660791882190
+        Name: Player
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142595
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8626595258977069995
+          m_Value1: 5891177603244496675
+        Name: OrbitPoint
+        m_Value: {x: 0, y: 0, z: 0}
+    - rid: 4483542953879142596
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AnimationClip, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4811663296895815538
+          m_Value1: 9440692399896613421
+        Name: AttackAnim
+        m_Value: {fileID: -2493277499941417448, guid: 5d382257ac01b2c4daf29d43fdaa9a78, type: 3}
+    - rid: 4483542953879142597
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13457263240931694898
+          m_Value1: 6134488367021302725
+        Name: BratProjectilePrefab
+        m_Value: {fileID: 3320791245233872584, guid: f7bdc675469b788488163b9d2fd874b0, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +212,8 @@ MonoBehaviour:
   m_Nodes:
   - rid: 4483542733402669060
   - rid: 4483542935868014788
-  m_VersionTimestamp: 638838656549675669
+  - rid: 4483542942826627191
+  m_VersionTimestamp: 638839335371261755
   m_DebugInfo: {fileID: -8368995467309922567}
   m_RuntimeGraph: {fileID: -2540379819654064824}
   AssetID:
@@ -192,6 +252,45 @@ MonoBehaviour:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       Tooltip: 
+    NamedChildren: []
+  - Name: BratTryAttack
+    Story: Brat counts down and at 0 attack
+    RuntimeTypeID:
+      m_Value0: 14183107670019346920
+      m_Value1: 827349786989143436
+    Variables:
+    - Name: Brat
+      Type:
+        m_SerializableType: Kosciach.StoreWars.Customers.Customer, CustomersAssembly,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Player
+      Type:
+        m_SerializableType: Kosciach.StoreWars.Player.Player, PlayerAssembly, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Anim
+      Type:
+        m_SerializableType: UnityEngine.AnimationClip, UnityEngine.AnimationModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: ProjectilePrefab
+      Type:
+        m_SerializableType: Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: TimeBetweenAttacks
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    NamedChildren: []
+  - Name: Conditional Guard
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 10845871997924083670
+      m_Value1: 4041440894818793834
+    Variables: []
     NamedChildren: []
   - Name: Navigate To Location
     Story: '[Agent] navigates to [Location]'
@@ -348,13 +447,6 @@ MonoBehaviour:
         m_SerializableType: Unity.Behavior.NavigateToTargetAction+TargetPositionMode,
           Unity.Behavior, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Tooltip: 
-    NamedChildren: []
-  - Name: Conditional Guard
-    Story: 
-    RuntimeTypeID:
-      m_Value0: 10845871997924083670
-      m_Value1: 4041440894818793834
-    Variables: []
     NamedChildren: []
   - Name: KarenAttack
     Story: Karen attacks Player
@@ -579,6 +671,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4483542733402669060
       type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -611,7 +705,7 @@ MonoBehaviour:
     - rid: 4483542935868014788
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -0.19997823, y: 134.69997}
+        Position: {x: 0, y: 103}
         ID:
           m_Value0: 16628824176399878010
           m_Value1: 13728426117665055657
@@ -647,7 +741,8 @@ MonoBehaviour:
         m_IsFloating: 0
         m_NodeModel:
           rid: 4483542935868014788
-        m_Connections: []
+        m_Connections:
+        - rid: 4483542942826627192
     - rid: 4483542935868014803
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -735,6 +830,183 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {x: 0, y: 0, z: 0}
+    - rid: 4483542942826627191
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 0, y: 191}
+        ID:
+          m_Value0: 10105560804932546725
+          m_Value1: 9656074936922338656
+        Parents: []
+        PortModels:
+        - rid: 4483542942826627192
+        - rid: 4483542942826627193
+        NodeType:
+          m_SerializableType: BratTryAttackAction, CustomersAssembly, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 14183107670019346920
+          m_Value1: 827349786989143436
+        m_FieldValues:
+        - rid: 4483542953879142488
+        - rid: 4483542953879142552
+        - rid: 4483542953879142489
+        - rid: 4483542953879142553
+        - rid: 4483542942826627211
+    - rid: 4483542942826627192
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 4483542942826627191
+        m_Connections:
+        - rid: 4483542935868014790
+    - rid: 4483542942826627193
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 4483542942826627191
+        m_Connections: []
+    - rid: 4483542942826627211
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: TimeBetweenAttacks
+        Type:
+          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 4483542942826627212
+        LinkedVariable:
+          rid: -2
+    - rid: 4483542942826627212
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 5
+    - rid: 4483542953879142488
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Brat
+        Type:
+          m_SerializableType: Kosciach.StoreWars.Customers.Customer, CustomersAssembly,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 4483542953879142490
+        LinkedVariable:
+          rid: 4483542953879142499
+    - rid: 4483542953879142489
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Anim
+        Type:
+          m_SerializableType: UnityEngine.AnimationClip, UnityEngine.AnimationModule,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 4483542953879142491
+        LinkedVariable:
+          rid: 4483542953879142498
+    - rid: 4483542953879142490
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.Customer, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142491
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AnimationClip, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142498
+      type: {class: 'TypedVariableModel`1[[UnityEngine.AnimationClip, UnityEngine.AnimationModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 4811663296895815538
+          m_Value1: 9440692399896613421
+        Name: AttackAnim
+        IsExposed: 0
+        m_IsShared: 0
+        m_Value: {fileID: -2493277499941417448, guid: 5d382257ac01b2c4daf29d43fdaa9a78, type: 3}
+    - rid: 4483542953879142499
+      type: {class: 'TypedVariableModel`1[[Kosciach.StoreWars.Customers.Customer, CustomersAssembly]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 15974439658334081812
+          m_Value1: 9876196738201581649
+        Name: Customer
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142552
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Player
+        Type:
+          m_SerializableType: Kosciach.StoreWars.Player.Player, PlayerAssembly, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 4483542953879142554
+        LinkedVariable:
+          rid: 4483542953879142582
+    - rid: 4483542953879142553
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: ProjectilePrefab
+        Type:
+          m_SerializableType: Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 4483542953879142555
+        LinkedVariable:
+          rid: 4483542953879142581
+    - rid: 4483542953879142554
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Player.Player, PlayerAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142555
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 4483542953879142581
+      type: {class: 'TypedVariableModel`1[[Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 13457263240931694898
+          m_Value1: 6134488367021302725
+        Name: BratProjectilePrefab
+        IsExposed: 0
+        m_IsShared: 0
+        m_Value: {fileID: 3320791245233872584, guid: f7bdc675469b788488163b9d2fd874b0, type: 3}
+    - rid: 4483542953879142582
+      type: {class: 'TypedVariableModel`1[[Kosciach.StoreWars.Player.Player, PlayerAssembly]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 13135832867910752693
+          m_Value1: 17953790660791882190
+        Name: Player
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
 --- !u!114 &2027250979490874811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: BratBehaviour Blackboard
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638838656510622875
+  VersionTimestamp: 638839335337004738
   AssetID:
     m_Value0: 9528228089454925610
     m_Value1: 5343223381757492968
@@ -757,6 +1029,8 @@ MonoBehaviour:
     - rid: 4483542798828307143
     - rid: 4483542798828307189
     - rid: 4483542935868014711
+    - rid: 4483542953879142515
+    - rid: 4483542953879142580
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
@@ -793,6 +1067,22 @@ MonoBehaviour:
           m_Value1: 5891177603244496675
         Name: OrbitPoint
         m_Value: {x: 0, y: 0, z: 0}
+    - rid: 4483542953879142515
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AnimationClip, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4811663296895815538
+          m_Value1: 9440692399896613421
+        Name: AttackAnim
+        m_Value: {fileID: -2493277499941417448, guid: 5d382257ac01b2c4daf29d43fdaa9a78, type: 3}
+    - rid: 4483542953879142580
+      type: {class: 'BlackboardVariable`1[[Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13457263240931694898
+          m_Value1: 6134488367021302725
+        Name: BratProjectilePrefab
+        m_Value: {fileID: 3320791245233872584, guid: f7bdc675469b788488163b9d2fd874b0, type: 3}
 --- !u!114 &7115745994928875411
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,7 +1103,9 @@ MonoBehaviour:
   - rid: 4483542798828307101
   - rid: 4483542798828307146
   - rid: 4483542935868014677
-  m_VersionTimestamp: 638838656510622875
+  - rid: 4483542953879142497
+  - rid: 4483542953879142561
+  m_VersionTimestamp: 638839335337004738
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 2027250979490874811}
@@ -857,6 +1149,26 @@ MonoBehaviour:
           m_Value0: 8626595258977069995
           m_Value1: 5891177603244496675
         Name: OrbitPoint
-        IsExposed: 1
+        IsExposed: 0
         m_IsShared: 0
         m_Value: {x: 0, y: 0, z: 0}
+    - rid: 4483542953879142497
+      type: {class: 'TypedVariableModel`1[[UnityEngine.AnimationClip, UnityEngine.AnimationModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 4811663296895815538
+          m_Value1: 9440692399896613421
+        Name: AttackAnim
+        IsExposed: 0
+        m_IsShared: 0
+        m_Value: {fileID: -2493277499941417448, guid: 5d382257ac01b2c4daf29d43fdaa9a78, type: 3}
+    - rid: 4483542953879142561
+      type: {class: 'TypedVariableModel`1[[Kosciach.StoreWars.Customers.BratProjectile, CustomersAssembly]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 13457263240931694898
+          m_Value1: 6134488367021302725
+        Name: BratProjectilePrefab
+        IsExposed: 0
+        m_IsShared: 0
+        m_Value: {fileID: 3320791245233872584, guid: f7bdc675469b788488163b9d2fd874b0, type: 3}
