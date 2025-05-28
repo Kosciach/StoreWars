@@ -6,7 +6,7 @@ namespace Kosciach.StoreWars.UI
 {
     using Player;
     
-    public class PlayerHealthBar : MonoBehaviour
+    public class PlayerHealthBar : UIPanel
     {
         private Player _player;
         private PlayerStatsController _playerStats;
@@ -14,13 +14,13 @@ namespace Kosciach.StoreWars.UI
         [BoxGroup("References"), SerializeField] private Slider _healthBar;
         
         
-        private void Start()
+        protected override void OnLateSetup()
         {
             _player = FindFirstObjectByType<Player>();
             _playerStats = _player.GetController<PlayerStatsController>();
         }
-        
-        private void Update()
+
+        protected override void OnTick()
         {
             _healthBar.value = _playerStats.CurrentHealthNormalized;
         }
