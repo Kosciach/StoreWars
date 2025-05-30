@@ -91,5 +91,15 @@ namespace Kosciach.StoreWars.Player
                 _animator.SetLayerWeight(_animator.GetLayerIndex("StunLayer"), weight);
             });
         }
+        
+        internal void Melee()
+        {
+            AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+            if (!stateInfo.IsName("Melee"))
+            {
+                _animator.SetFloat("MeleeIndex", Random.Range(0, 2));
+                _animator.SetTrigger("Melee");
+            }
+        }
     }
 }

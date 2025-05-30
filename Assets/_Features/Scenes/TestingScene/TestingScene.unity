@@ -3587,7 +3587,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6342795470271567518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
@@ -3891,14 +3891,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.18
-  m_Height: 0.68249536
+  m_Height: 0.560701
   m_Direction: 1
-  m_Center: {x: 0, y: 0.14124769, z: 0}
+  m_Center: {x: 0, y: 0.20214486, z: 0}
 --- !u!195 &3283862166015300995
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3969,6 +3969,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5131465371956363789, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
+      propertyPath: _meleeRange
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131465371956363789, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
+      propertyPath: _meleeKnockback
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9119826584293271544, guid: b313f434cbdb96441880cb50e43f6c2b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4005,7 +4013,7 @@ Transform:
   m_GameObject: {fileID: 6342795470271567518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.29, y: 0.58, z: 1.096}
+  m_LocalPosition: {x: 1.02, y: 0.58, z: -1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4230,6 +4238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _behaviorGraphAgent: {fileID: 873329044322544302}
+  _rigidbody: {fileID: 8144486966946295319}
   _maxHealth: 100
 --- !u!4 &4709650468159842364
 Transform:
@@ -4305,6 +4314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3817867427884708146}
   - component: {fileID: 3163331542396693916}
+  - component: {fileID: 8144486966946295319}
   - component: {fileID: 3283862166015300995}
   - component: {fileID: 873329044322544302}
   - component: {fileID: 7473696214012381244}
@@ -4312,7 +4322,7 @@ GameObject:
   - component: {fileID: 8144486966946295317}
   - component: {fileID: 4571948273566095865}
   - component: {fileID: 8144486966946295318}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Brat
   m_TagString: Customer
   m_Icon: {fileID: 0}
@@ -4496,6 +4506,33 @@ MonoBehaviour:
   - {x: -2.3776412, y: 0, z: 0.77254295}
   - {x: -1.8578619, y: 0, z: 1.6728268}
   - {x: -1.0168412, y: 0, z: 2.2838638}
+--- !u!54 &8144486966946295319
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342795470271567518}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 5
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &8153081418398962712
 GameObject:
   m_ObjectHideFlags: 0
