@@ -891,6 +891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a72761879d674f46a447dc0d451b02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meleeRange: 100
+  _meleeKnockback: 5
 --- !u!114 &8925625861384425536
 MonoBehaviour:
   m_ObjectHideFlags: 0

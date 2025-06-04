@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8adf798d01ccb9146a71ba9fd29262c3
+guid: 69615458b4687e046bd9f2b586b4a906
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Kenney Future Narrow
+  - Fredoka
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

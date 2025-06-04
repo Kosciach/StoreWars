@@ -3,6 +3,7 @@ using Kosciach.StoreWars.Inputs;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Kosciach.StoreWars.UI
 {
@@ -11,8 +12,13 @@ namespace Kosciach.StoreWars.UI
         private InputManager _inputManager;
         
         [BoxGroup("References"), SerializeField] private GameObject _playerHud;
-        [BoxGroup("References"), SerializeField] private Transform _content;
         [BoxGroup("References"), SerializeField] private GameObject _blocker;
+        [BoxGroup("References"), SerializeField] private Transform _content;
+        [BoxGroup("References"), SerializeField] private SettingsPanel _settings;
+        [Header("Buttons"), HorizontalLine]
+        [BoxGroup("References"), SerializeField] private Button _resumeButton;
+        [BoxGroup("References"), SerializeField] private Button _settingsButton;
+        [BoxGroup("References"), SerializeField] private Button _exitButton;
         
         [BoxGroup("Settings"), SerializeField] private float _animTime;
         [BoxGroup("Settings"), SerializeField] private Ease _animPauseEase;
@@ -31,11 +37,19 @@ namespace Kosciach.StoreWars.UI
             gameObject.SetActive(false);
             _playerHud.SetActive(true);
             _blocker.SetActive(false);
+            
+            _resumeButton.onClick.AddListener(Resume);
+            _settingsButton.onClick.AddListener(_settings.Open);
+            _exitButton.onClick.AddListener(Application.Quit);
         }
         
         protected override void OnDispose()
         {
             _inputManager.InputActions.Player.Pause.performed -= PauseInput;
+            
+            _resumeButton.onClick.RemoveAllListeners();
+            _settingsButton.onClick.RemoveAllListeners();
+            _exitButton.onClick.RemoveAllListeners();
         }
 
         private void PauseInput(InputAction.CallbackContext p_ctx)
@@ -48,6 +62,7 @@ namespace Kosciach.StoreWars.UI
 
         private void Pause()
         {
+            _isPause = true;
             Time.timeScale = 0;
             
             gameObject.SetActive(true);
@@ -65,6 +80,7 @@ namespace Kosciach.StoreWars.UI
 
         private void Resume()
         {
+            _isPause = false;
             _blocker.SetActive(true);
             
             _content.localScale = Vector3.one;
