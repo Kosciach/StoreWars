@@ -1,4 +1,6 @@
+using DG.Tweening;
 using Kosciach.StoreWars.Inputs;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,8 +9,17 @@ namespace Kosciach.StoreWars.UI
     public class PausePanel : UIPanel
     {
         private InputManager _inputManager;
-
+        
+        [BoxGroup("References"), SerializeField] private GameObject _playerHud;
+        [BoxGroup("References"), SerializeField] private Transform _content;
+        [BoxGroup("References"), SerializeField] private GameObject _blocker;
+        
+        [BoxGroup("Settings"), SerializeField] private float _animTime;
+        [BoxGroup("Settings"), SerializeField] private Ease _animPauseEase;
+        [BoxGroup("Settings"), SerializeField] private Ease _animResumeEase;
+        
         private bool _isPause;
+        private Tween _animTween;
         
         
         protected override void OnLateSetup()
@@ -16,7 +27,10 @@ namespace Kosciach.StoreWars.UI
             _inputManager = FindFirstObjectByType<InputManager>();
             _inputManager.InputActions.Player.Pause.performed += PauseInput;
 
-            Resume();
+            Time.timeScale = 1;
+            gameObject.SetActive(false);
+            _playerHud.SetActive(true);
+            _blocker.SetActive(false);
         }
         
         protected override void OnDispose()
@@ -35,13 +49,34 @@ namespace Kosciach.StoreWars.UI
         private void Pause()
         {
             Time.timeScale = 0;
+            
             gameObject.SetActive(true);
+            _playerHud.SetActive(false);
+            _blocker.SetActive(true);
+            
+            _content.localScale = Vector3.zero;
+            _animTween = _content.DOScale(Vector3.one, 0.5f).SetUpdate(true);
+            _animTween.OnComplete(() =>
+            {
+                _blocker.SetActive(false);
+            });
+            _animTween.SetEase(_animPauseEase);
         }
 
         private void Resume()
         {
-            Time.timeScale = 1;
-            gameObject.SetActive(false);
+            _blocker.SetActive(true);
+            
+            _content.localScale = Vector3.one;
+            _animTween = _content.DOScale(Vector3.zero, 0.5f).SetUpdate(true);
+            _animTween.OnComplete(() =>
+            {
+                Time.timeScale = 1;
+                gameObject.SetActive(false);
+                _playerHud.SetActive(true);
+                _blocker.SetActive(false);
+            });
+            _animTween.SetEase(_animResumeEase);
         }
     }
 
