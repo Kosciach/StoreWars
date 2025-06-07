@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;">
+        <engine:VisualElement name="Icon" style="flex-grow: 1; background-color: rgb(0, 0, 0); visibility: hidden;" />
+    </engine:Button>
+</engine:UXML>
