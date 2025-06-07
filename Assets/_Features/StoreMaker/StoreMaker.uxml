@@ -1,0 +1,110 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/_Features/StoreMaker/StoreMaker.uss?fileID=7433441132597879392&amp;guid=c06aa9cbd1f9788499719d2e54c84bd4&amp;type=3#StoreMaker" />
+    <engine:VisualElement name="Container" style="flex-grow: 0; flex-basis: initial; flex-wrap: nowrap; align-content: center; align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 100%; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto;">
+        <engine:VisualElement name="Title" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 583px; height: 75px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+            <engine:Label text="STORE MAKER" name="Text" style="width: 327px; -unity-text-align: upper-center; align-items: stretch; font-size: 40px; -unity-font-style: bold; -unity-text-outline-width: 0;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Buttons" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 583px; height: 547px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+            <engine:Button text="&#10;" name="TileButton" class="tile-button" style="width: 50px; height: 50px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
