@@ -1,45 +1,67 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 namespace Kosciach.StoreWars.StoreMaker 
 {
     public class Store : MonoBehaviour
     {
-        private Dictionary<Vector2Int, GameObject> _tiles = new();
+#if UNITY_EDITOR
+        [SerializeField] private float _gridScale = 2f;
+        [SerializeField] private List<StoreProp> _storePropsPrefabs;
+        public IReadOnlyList<StoreProp> StorePropsPrefabs => _storePropsPrefabs;
 
-        public bool UpdateTile(Vector2Int p_pos)
+        private StoreProp _currentPropPrefab;
+        private Dictionary<Vector2Int, StoreProp> _tilesAndProps = new();
+        public IReadOnlyDictionary<Vector2Int, StoreProp> TilesAndProps => _tilesAndProps;
+        
+        public void CheckTiles()
         {
-            if (_tiles.ContainsKey(p_pos))
-                return RemoveTile(p_pos);
-            return AddTile(p_pos);
+            _tilesAndProps.Clear();
+            foreach (Transform child in transform)
+            {
+                Vector3 pos = child.position / _gridScale;
+                Vector2Int tilePos = new Vector2Int((int)pos.x, (int)pos.z);
+                _tilesAndProps.Add(tilePos, child.GetComponent<StoreProp>());
+            }
+        }
+
+        public void SetCurrentPropPrefab(int p_propPrefabIndex)
+        {
+            int prefabIndex = p_propPrefabIndex - 1;
+            _currentPropPrefab = prefabIndex == -1
+                ? null
+                : _storePropsPrefabs[prefabIndex];
         }
         
-        private bool AddTile(Vector2Int p_pos)
+        public void UpdateTile(Vector2Int p_pos)
         {
-            Debug.Log("Add");
-            
-            GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            obj.transform.position = new Vector3(p_pos.x, 0, p_pos.y) * 2f;
-            obj.transform.SetParent(transform);
-            
-            _tiles.Add(p_pos, obj);
+            TryRemoveProp(p_pos);
+            AddProp(p_pos);
 
-            return true;
+            EditorSceneManager.MarkSceneDirty(gameObject.scene);
         }
         
-        private bool RemoveTile(Vector2Int p_pos)
+        private void TryRemoveProp(Vector2Int p_pos)
         {
-            Debug.Log("Remove");
+            if (!_tilesAndProps.ContainsKey(p_pos)) return;
             
-            DestroyImmediate(_tiles[p_pos]);
-            _tiles.Remove(p_pos);
-            
-            return false;
+            DestroyImmediate(_tilesAndProps[p_pos].gameObject);
+            _tilesAndProps.Remove(p_pos);
         }
-
-        public bool IsTileFilled(Vector2Int p_pos)
+        
+        private void AddProp(Vector2Int p_pos)
         {
-            return _tiles.ContainsKey(p_pos);
+            if (_currentPropPrefab == null) return;
+            
+            StoreProp prop = PrefabUtility.InstantiatePrefab(_currentPropPrefab) as StoreProp;
+            prop.transform.position = new Vector3(p_pos.x, 0, p_pos.y) * _gridScale;
+            prop.transform.SetParent(transform);
+            
+            _tilesAndProps.Add(p_pos, prop);
         }
+#endif
     }
 }

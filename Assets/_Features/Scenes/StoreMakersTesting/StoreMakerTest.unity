@@ -1001,6 +1001,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00322fbc21f007748af89134a0dfc350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gridScale: 2
+  _storePropsPrefabs:
+  - {fileID: 6859652905756537820, guid: f8d69fa940f5b284ca51fcf837b62975, type: 3}
+  - {fileID: 5841137940729358199, guid: 46fab2baa085f8c4093b373c3f9db0bd, type: 3}
 --- !u!4 &1637137934
 Transform:
   m_ObjectHideFlags: 0

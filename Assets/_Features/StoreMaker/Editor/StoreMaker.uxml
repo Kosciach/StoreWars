@@ -2,10 +2,10 @@
     <engine:Template name="TileButton" src="project://database/Assets/_Features/StoreMaker/Editor/TileButton.uxml?fileID=9197481963319205126&amp;guid=145a836425a9b894e93d4e26057924cd&amp;type=3#TileButton" />
     <Style src="project://database/Assets/_Features/StoreMaker/Editor/StoreMaker.uss?fileID=7433441132597879392&amp;guid=c06aa9cbd1f9788499719d2e54c84bd4&amp;type=3#StoreMaker" />
     <engine:VisualElement name="Container" style="flex-grow: 0; flex-basis: initial; flex-wrap: nowrap; align-content: center; align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 100%; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto;">
-        <engine:VisualElement name="Title" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 583px; height: 75px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+        <engine:VisualElement name="Title" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 600px; height: 75px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
             <engine:Label text="STORE MAKER" name="Text" style="width: 327px; -unity-text-align: upper-center; align-items: stretch; font-size: 40px; -unity-font-style: bold; -unity-text-outline-width: 0;" />
         </engine:VisualElement>
-        <engine:VisualElement name="Buttons" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 583px; height: 547px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+        <engine:VisualElement name="Buttons" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 600px; height: 565px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
@@ -95,6 +95,7 @@
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
+            <engine:Instance template="TileButton" name="TemplateContainer" />
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
@@ -102,10 +103,10 @@
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
             <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
+            <engine:Instance template="TileButton" name="TemplateContainer" />
+            <engine:Instance template="TileButton" name="TemplateContainer" />
+            <engine:Instance template="TileButton" name="TemplateContainer" />
         </engine:VisualElement>
+        <engine:DropdownField label="Element" name="PrefabDropdown" style="position: relative; top: auto; left: auto; right: auto; bottom: auto; padding-top: 36px;" />
     </engine:VisualElement>
 </engine:UXML>

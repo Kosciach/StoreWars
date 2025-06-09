@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -26,28 +28,38 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
 
         public void CreateGUI()
         {
+            //Get Store
             _store = FindFirstObjectByType<Store>();
+            _store.CheckTiles();
             
+            //Setup UXML
             VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
             rootVisualElement.Add(labelFromUXML);
-
-            List<Button> tileButtons = rootVisualElement.Query<Button>(className: "tile-button").ToList();
-
+            
+            //Setup Dropdown
+            DropdownField storeElementsDropdown = rootVisualElement.Query<DropdownField>("PrefabDropdown");
+            storeElementsDropdown.choices = new()
+            {
+                "None"
+            };
+            storeElementsDropdown.choices.AddRange(_store.StorePropsPrefabs.Select(element =>  element.name).ToList());
+            storeElementsDropdown.index = 0;
+            storeElementsDropdown.RegisterValueChangedCallback(x =>
+            {
+                _store.SetCurrentPropPrefab(storeElementsDropdown.index);
+            });
+            _store.SetCurrentPropPrefab(0);
+            
+            //Setup Buttons
             int index = 0;
+            List<TileButton> tileButtons = rootVisualElement.Query<TileButton>(className: "tile-button").ToList();
             for (int i = 0; i < _rowCount; i++)
             {
                 for (int j = 0; j < _tilesPerRow; j++)
                 {
                     Vector2Int pos = new Vector2Int(i, j);
-
-                    Button button = tileButtons[index];
-                    VisualElement icon = button.Query<VisualElement>("Icon");
-                    icon.visible = _store.IsTileFilled(pos);
-                    
-                    button.clicked += () =>
-                    {
-                        icon.visible = _store.UpdateTile(pos);
-                    };
+                    TileButton button = tileButtons[index];
+                    button.Setup(_store, pos);
 
                     index++;
                 }
