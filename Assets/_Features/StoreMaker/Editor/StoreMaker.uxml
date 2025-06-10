@@ -1,112 +1,123 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <engine:Template name="TileButton" src="project://database/Assets/_Features/StoreMaker/Editor/TileButton.uxml?fileID=9197481963319205126&amp;guid=145a836425a9b894e93d4e26057924cd&amp;type=3#TileButton" />
     <Style src="project://database/Assets/_Features/StoreMaker/Editor/StoreMaker.uss?fileID=7433441132597879392&amp;guid=c06aa9cbd1f9788499719d2e54c84bd4&amp;type=3#StoreMaker" />
-    <engine:VisualElement name="Container" style="flex-grow: 0; flex-basis: initial; flex-wrap: nowrap; align-content: center; align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 100%; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto;">
-        <engine:VisualElement name="Title" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 600px; height: 75px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+    <engine:VisualElement name="Container" style="flex-grow: 0; flex-basis: initial; flex-wrap: nowrap; align-content: flex-start; align-items: flex-start; justify-content: center; flex-direction: column; width: 597px; height: 902%; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(255, 0, 0, 0); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+        <engine:VisualElement name="Title" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 600px; height: 75px; align-self: flex-start; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; margin-right: 0; margin-bottom: 0; margin-left: 0;">
             <engine:Label text="STORE MAKER" name="Text" style="width: 327px; -unity-text-align: upper-center; align-items: stretch; font-size: 40px; -unity-font-style: bold; -unity-text-outline-width: 0;" />
         </engine:VisualElement>
-        <engine:VisualElement name="Buttons" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 600px; height: 565px; align-self: center; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" name="TemplateContainer" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" />
-            <engine:Instance template="TileButton" name="TemplateContainer" />
-            <engine:Instance template="TileButton" name="TemplateContainer" />
-            <engine:Instance template="TileButton" name="TemplateContainer" />
+        <engine:VisualElement name="InnerContainer" style="flex-grow: 0; background-color: rgba(0, 255, 39, 0); width: 847px; height: 890px; flex-direction: row; justify-content: flex-start; align-items: flex-start; align-content: flex-start; align-self: flex-start; padding-top: 31px; flex-shrink: 1;">
+            <engine:VisualElement name="ButtonsContainer" style="flex-grow: 0; flex-basis: initial; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; flex-direction: row; width: 600px; height: 568px; align-self: auto; right: auto; left: auto; transform-origin: center 145%; position: relative; top: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.18); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; display: flex; visibility: visible; overflow: visible; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-shrink: 0;">
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" name="TemplateContainer" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" />
+                <engine:Instance template="TileButton" name="TemplateContainer" />
+                <engine:Instance template="TileButton" name="TemplateContainer" />
+                <engine:Instance template="TileButton" name="TemplateContainer" />
+            </engine:VisualElement>
+            <engine:VisualElement name="ActionsContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 358px; height: 568px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; flex-shrink: 0; margin-left: 52px;">
+                <engine:VisualElement name="ActionsButtonsContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0.18); width: 100%; height: 22%; flex-shrink: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; flex-direction: row; justify-content: space-evenly; align-self: auto; align-content: auto; align-items: center;">
+                    <engine:Button name="BuildPropsButton" style="height: 75%; width: 25%; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-image: url(&quot;project://database/Assets/_UIAssets/StoreMaker/PlaceProps.png?fileID=2800000&amp;guid=260fdb9b3bb6a9d42bae52604af8ccc8&amp;type=3#PlaceProps&quot;); background-size: 50% 50%;" />
+                    <engine:Button name="ErasePropsButton" style="height: 75%; width: 25%; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-image: url(&quot;project://database/Assets/_UIAssets/StoreMaker/EraseProps.png?fileID=2800000&amp;guid=f45f5152954bc1744b3403907aea2da1&amp;type=3#EraseProps&quot;); background-size: 50% 50%;" />
+                    <engine:Button name="RotatePropsButton" style="height: 75%; width: 25%; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-image: url(&quot;project://database/Assets/_UIAssets/StoreMaker/RotateProps.png?fileID=2800000&amp;guid=2554437d9787c8640ad6d5004b09670a&amp;type=3#RotateProps&quot;); background-size: 50% 50%;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="ActionsDropdown" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.18); width: 100%; height: 19%; flex-shrink: 0; padding-top: 0; margin-top: 20px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; display: flex; visibility: visible; overflow: visible; opacity: 1;">
+                    <engine:DropdownField label="Element" name="PrefabDropdown" style="position: relative; top: auto; left: auto; right: auto; bottom: auto; padding-top: 36px; display: flex; visibility: visible; overflow: visible;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
         </engine:VisualElement>
-        <engine:DropdownField label="Element" name="PrefabDropdown" style="position: relative; top: auto; left: auto; right: auto; bottom: auto; padding-top: 36px;" />
     </engine:VisualElement>
 </engine:UXML>

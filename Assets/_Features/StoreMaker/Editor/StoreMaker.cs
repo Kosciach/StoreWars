@@ -17,6 +17,11 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
         private const int _tilesPerRow = 10;
 
         private Store _store;
+        private Button _buildPropsButton;
+        private Button _erasePropsButton;
+        private Button _rotatePropsButton;
+        
+        private Actions _currentAction = Actions.Build;
         
     
         [MenuItem("Tools/StoreMaker")]
@@ -35,8 +40,24 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
             //Setup UXML
             VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
             rootVisualElement.Add(labelFromUXML);
+
+            //Actions
+            _buildPropsButton = rootVisualElement.Query<Button>("BuildPropsButton");
+            _erasePropsButton = rootVisualElement.Query<Button>("ErasePropsButton");
+            _rotatePropsButton = rootVisualElement.Query<Button>("RotatePropsButton");
+
+            _buildPropsButton.clicked += () =>
+            { ChangeAction(Actions.Build); };
             
-            //Setup Dropdown
+            _erasePropsButton.clicked += () =>
+            { ChangeAction(Actions.Erase); };
+            
+            _rotatePropsButton.clicked += () =>
+            { ChangeAction(Actions.Rotate); };
+
+            ChangeAction(Actions.Build);
+            
+            /*//Setup Dropdown
             DropdownField storeElementsDropdown = rootVisualElement.Query<DropdownField>("PrefabDropdown");
             storeElementsDropdown.choices = new()
             {
@@ -48,6 +69,7 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
             {
                 _store.SetCurrentPropPrefab(storeElementsDropdown.index);
             });
+            _store.SetCurrentPropPrefab(0);*/
             _store.SetCurrentPropPrefab(0);
             
             //Setup Buttons
@@ -59,11 +81,19 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
                 {
                     Vector2Int pos = new Vector2Int(i, j);
                     TileButton button = tileButtons[index];
-                    button.Setup(_store, pos);
+                    button.Setup(_store, pos, () => _currentAction);
 
                     index++;
                 }
             }
+        }
+
+        private void ChangeAction(Actions p_action)
+        {
+            _currentAction = p_action;
+            _buildPropsButton.SetEnabled(_currentAction != Actions.Build);
+            _erasePropsButton.SetEnabled(_currentAction != Actions.Erase);
+            _rotatePropsButton.SetEnabled(_currentAction != Actions.Rotate);
         }
     }
 #endif

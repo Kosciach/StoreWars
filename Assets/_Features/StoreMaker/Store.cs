@@ -30,10 +30,7 @@ namespace Kosciach.StoreWars.StoreMaker
 
         public void SetCurrentPropPrefab(int p_propPrefabIndex)
         {
-            int prefabIndex = p_propPrefabIndex - 1;
-            _currentPropPrefab = prefabIndex == -1
-                ? null
-                : _storePropsPrefabs[prefabIndex];
+            _currentPropPrefab = _storePropsPrefabs[p_propPrefabIndex];
         }
         
         public void UpdateTile(Vector2Int p_pos)
@@ -44,7 +41,7 @@ namespace Kosciach.StoreWars.StoreMaker
             EditorSceneManager.MarkSceneDirty(gameObject.scene);
         }
         
-        private void TryRemoveProp(Vector2Int p_pos)
+        public void TryRemoveProp(Vector2Int p_pos)
         {
             if (!_tilesAndProps.ContainsKey(p_pos)) return;
             
