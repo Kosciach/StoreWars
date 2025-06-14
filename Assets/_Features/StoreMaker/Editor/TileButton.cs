@@ -32,7 +32,7 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
             UpdateIcon();
         }
 
-        private void ClickTile()
+        internal void ClickTile()
         {
             Actions action = _getCurrentAction.Invoke();
             switch (action)
