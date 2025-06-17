@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Unity.AppUI.UI;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UIElements.Button;
 
 namespace Kosciach.StoreWars.StoreMaker.Editor
 {
@@ -29,13 +32,17 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
         private Button _erasePropsButton;
         private Button _rotatePropsButton;
         
+        //Building
+        private Button _dropdownButton;
+        
         //Erasing
         private Button _eraseAllPropsButton;
         
+        //Oher
         private Actions _currentAction = Actions.Build;
         
     
-        [MenuItem("Tools/StoreMaker")]
+        [UnityEditor.MenuItem("Tools/StoreMaker")]
         public static void ShowExample()
         {
             StoreMaker wnd = GetWindow<StoreMaker>();
@@ -54,20 +61,6 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
 
             //Actions
             SetupActions();
-            
-            /*//Setup Dropdown
-            DropdownField storeElementsDropdown = rootVisualElement.Query<DropdownField>("PrefabDropdown");
-            storeElementsDropdown.choices = new()
-            {
-                "None"
-            };
-            storeElementsDropdown.choices.AddRange(_store.StorePropsPrefabs.Select(element =>  element.name).ToList());
-            storeElementsDropdown.index = 0;
-            storeElementsDropdown.RegisterValueChangedCallback(x =>
-            {
-                _store.SetCurrentPropPrefab(storeElementsDropdown.index);
-            });
-            _store.SetCurrentPropPrefab(0);*/
             _store.SetCurrentPropPrefab(0);
             
             //Setup Buttons
@@ -102,6 +95,39 @@ namespace Kosciach.StoreWars.StoreMaker.Editor
             _rotatePropsButton.clicked += () => ChangeAction(Actions.Rotate);
 
             ChangeAction(Actions.Build);
+            
+            //Building
+            ScrollView dropdown = rootVisualElement.Query<ScrollView>("Dropdown");
+            for (int i = 0; i < _store.StorePropsPrefabs.Count; i++)
+            {
+                int index = i;
+                StoreProp prop = _store.StorePropsPrefabs[index];
+                
+                PropButton propButton = new PropButton(prop.Icon, () =>
+                {
+                    _dropdownButton.style.backgroundImage = prop.Icon;
+                    
+                    dropdown.style.display = DisplayStyle.None;
+                    _dropdownButton.style.display = DisplayStyle.Flex;
+                    
+                    _store.SetCurrentPropPrefab(index);
+                });
+                
+                dropdown.Add(propButton);
+            }
+            
+             
+            _dropdownButton = rootVisualElement.Query<Button>("DropdownButton");
+            _dropdownButton.clicked += () =>
+            {
+                dropdown.style.display = DisplayStyle.Flex;
+                _dropdownButton.style.display = DisplayStyle.None;
+            };
+            
+            _dropdownButton.style.backgroundImage = _store.StorePropsPrefabs[0].Icon;
+            dropdown.style.display = DisplayStyle.None;
+            _dropdownButton.style.display = DisplayStyle.Flex;
+            
             
             //Erasing
             _eraseAllPropsButton = rootVisualElement.Query<Button>("EraseAllPropsButton");
